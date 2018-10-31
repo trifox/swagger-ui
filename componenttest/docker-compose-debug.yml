@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+
+  ##############################################
+  # The Development Overview Container
+  #
+  # it uses the ckleinhuis/ufp-env-handlebars image to transform environment variables into a json
+  # that is feed to a handlebars renderer and is configured by default to render and host a html menu
+  #
+  #
+#  development-overview:
+#    image: ckleinhuis/ufp-env-handlebars:latest
+#    environment:
+#    - CFG_BRAND_LABEL=Dev Swagger UI
+#
+#
+#    ports:
+#    - "8080:3000"
+#
