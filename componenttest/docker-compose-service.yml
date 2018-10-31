@@ -1,6 +1,6 @@
 version: '2'
 services:
   ufp-swagger-proxy:
-    image: ufp-swagger-proxy-app
+    image: ufp-swagger-proxy-app:6
     ports:
     - "3000:3000"

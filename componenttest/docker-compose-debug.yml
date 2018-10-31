@@ -9,12 +9,12 @@ services:
   # that is feed to a handlebars renderer and is configured by default to render and host a html menu
   #
   #
-#  development-overview:
-#    image: ckleinhuis/ufp-env-handlebars:latest
-#    environment:
-#    - CFG_BRAND_LABEL=Dev Swagger UI
-#
-#
-#    ports:
-#    - "8080:3000"
-#
+  development-overview:
+    image: ckleinhuis/ufp-env-handlebars:latest
+    environment:
+    - CFG_BRAND_LABEL=Dev Swagger UI
+
+
+    ports:
+    - "8080:3000"
+
