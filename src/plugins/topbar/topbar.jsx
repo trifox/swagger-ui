@@ -140,9 +140,9 @@ export default class Topbar extends React.Component {
       <div className="topbar">
         <div className="wrapper">
           <div className="topbar-wrapper">
-            <Link>
+            <Link title="UFP Swagger redirects all request to a backend proxy running on the same host">
               <img height="30" width="30" src={ Logo } alt="Swagger UI"/>
-              <span>swagger</span>
+              <span>ufp-swagger</span>
             </Link>
             <form className="download-url-wrapper" onSubmit={formOnSubmit}>
               {control.map((el, i) => cloneElement(el, { key: i }))}

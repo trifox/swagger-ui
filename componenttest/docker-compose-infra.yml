@@ -3,18 +3,14 @@ version: '2'
 services:
 
   ##############################################
-  # The Development Overview Container
+  # The Wiremocked Petstore providing tthe swagger file for it
   #
-  # it uses the ckleinhuis/ufp-env-handlebars image to transform environment variables into a json
-  # that is feed to a handlebars renderer and is configured by default to render and host a html menu
+  # and this should be loadable through a containerized environment
+  # using url
+  # http://wiremock-petstore:8080
   #
   #
   wiremock-petstore:
     build: ./wiremock/petstore
     ports:
     - "8081:8080"
-#
-#
-#    ports:
-#    - "8080:3000"
-#

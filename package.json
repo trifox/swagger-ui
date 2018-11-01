@@ -58,6 +58,7 @@
     "ieee754": "^1.1.8",
     "immutable": "^3.x.x",
     "js-file-download": "^0.4.1",
+    "js-yaml": "^3.12.0",
     "lodash": "^4.17.10",
     "memoizee": "^0.4.12",
     "prop-types": "^15.5.10",

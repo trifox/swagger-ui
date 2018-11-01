@@ -45,14 +45,15 @@ function objectToKeyValueString(env, { injectBaseConfig = false, schema = config
   const keys = Object.keys(env)
 
   // Compute an intermediate representation that holds candidate values and schemas.
-  // 
+  //
   // This is useful for deduping between multiple env keys that set the same
   // config variable.
 
   keys.forEach(key => {
     const varSchema = schema[key]
     const value = env[key]
-    
+
+    console.log('INPUT KEYS ARE ',varSchema,value)
     if(!varSchema) return
 
     const storageContents = valueStorage[varSchema.name]
@@ -74,11 +75,12 @@ function objectToKeyValueString(env, { injectBaseConfig = false, schema = config
   // Compute a key:value string based on valueStorage's contents.
 
   let result = ""
-
+     console.log('INPUT ENV IS ',env)
+     console.log('VALUESTORAGE IS ',valueStorage)
   Object.keys(valueStorage).forEach(key => {
     const value = valueStorage[key]
-    
-    const escapedName = /[^a-zA-Z0-9]/.test(key) ? `"${key}"` : key 
+
+    const escapedName = /[^a-zA-Z0-9]/.test(key) ? `"${key}"` : key
 
     if (value.schema.type === "string") {
       result += `${escapedName}: "${value.value}",\n`

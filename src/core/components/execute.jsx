@@ -28,6 +28,7 @@ export default class Execute extends Component {
   onChangeProducesWrapper = ( val ) => this.props.specActions.changeProducesValue([this.props.path, this.props.method], val)
 
   render(){
+    console.log('EXECUTE BUTTOn',this.props)
     return (
         <button className="btn execute opblock-control__btn" onClick={ this.onClick }>
           THIS IS THE EXECUTE BUTTON

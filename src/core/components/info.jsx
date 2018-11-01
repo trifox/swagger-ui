@@ -61,7 +61,7 @@ class License extends React.Component {
     let { license, getComponent } = this.props
 
     const Link = getComponent("Link")
-  
+
     let name = license.get("name") || "License"
     let url = license.get("url")
 
@@ -82,7 +82,7 @@ export class InfoUrl extends React.PureComponent {
     getComponent: PropTypes.func.isRequired
   }
 
-  
+
   render() {
     const { url, getComponent } = this.props
 
@@ -121,7 +121,7 @@ export default class Info extends React.Component {
     return (
       <div className="info">
         <hgroup className="main">
-          <h2 className="title" >{ title }
+          <h2 className="title" >UFP PROXIED - { title }
             { version && <VersionStamp version={version}></VersionStamp> }
           </h2>
           { host || basePath ? <InfoBasePath host={ host } basePath={ basePath } /> : null }

@@ -3,78 +3,78 @@ var app = express()
 var path = require('path')
 var request = require('request')
 
-var Transform = require('stream').Transform
-var parser = new Transform()
-parser._transform = function (data, encoding, done) {
-  console.log('Parser called1',  encoding)
-  console.log('Parser called2',  done)
-  console.log('Parser called3', data)
-  console.log('Parser called4', data.toString())
+const PORT = process.env.PORT || 8080
 
-  this.push(data)
-  done()
-}
+// prepare index.html and replace environment variables in it
+// we use the 'original' that should be provided in the build step
+
 app.use('/proxy', function (req, res) {
-  console.log('REQUEST IS ', req.url)
   var url = req.url.substr(1)
-  var r = null
+  console.log('REQUEST IS ', url)
+  var newRequest = null
+  res.append('X-UFP-PROXY', '1');
   switch (req.method) {
     case 'POST':
-      r = request.post({
+      newRequest = request.post({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     case 'PUT':
-      r = request.post({
+      newRequest = request.post({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     case 'DELETE':
-      r = request.delete({
+      newRequest = request.delete({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     case 'HEAD':
-      r = request.head({
+      newRequest = request.head({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     case 'OPTIONS':
-      r = request.options({
+      newRequest = request.options({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     case 'PATCH':
-      r = request.path({
+      newRequest = request.path({
         uri: url,
         json: req.body,
         headers: req.headers
       })
       break
     default:
-      r = request({
+      newRequest = request({
         uri: url,
         headers: req.headers
       })
   }
   console.log('REQUEST FORWARDING ')
 
-  req.pipe(r).pipe(res)
+  req.pipe(newRequest).on('error', function (err) {
+    console.log('Error Occurred', err)
+    res.json(err)
+  }).pipe(res)
   console.log('REQUEST END')
 })
 
-app.use('/', express.static(path.resolve(__dirname, '..', 'dist')))
+const distPath=path.resolve(__dirname, '..')
+console.log('dist path is ',distPath)
+app.use('/', express.static(distPath))
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(PORT, function () {
+  console.log(`Example app listening on port ${PORT}`)
 })
