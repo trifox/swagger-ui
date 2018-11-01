@@ -2,7 +2,7 @@
 # We don't declare them here — take a look at our docs.
 # https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
 
-FROM node:8-slim
+FROM node:8-slim    as build
 
 #RUN apk add nodejs
 
@@ -26,7 +26,7 @@ COPY ./dist/* /usr/share/nginx/html/
 COPY ./docker/run.sh /usr/share/nginx/
 
 
-COPY ./app-proxy/ /usr/share/nginx/html/app-proxy
+COPY ./app-proxy/dist /usr/share/nginx/html/app-proxy
 
 
 COPY ./docker/configurator /usr/share/nginx/configurator

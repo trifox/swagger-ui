@@ -71,7 +71,8 @@ app.use('/proxy', function (req, res) {
   console.log('REQUEST END')
 })
 
-const distPath=path.resolve(__dirname, '..')
+const distPath=path.resolve(process.cwd(),'..')
+console.log('dist path is __dirname',__dirname)
 console.log('dist path is ',distPath)
 app.use('/', express.static(distPath))
 

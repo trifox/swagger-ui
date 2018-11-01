@@ -53,7 +53,8 @@ fi
 
 cat ${NGINX_ROOT}/index.html
 
-node ${NGINX_ROOT}/app-proxy/server
+cd ${NGINX_ROOT}/app-proxy/
+node  server
 
 #exec nginx -t 'daemon off;'
 #exec nginx -g 'daemon off;'
