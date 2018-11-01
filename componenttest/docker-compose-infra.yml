@@ -5,17 +5,27 @@ services:
   ##############################################
   # The Wiremocked Petstore providing tthe swagger file for it
   #
-  # and this should be loadable through a containerized environment
+  # and this should be loadable through a ufp-swagger-proxy gui
   # using url
   # http://wiremock-petstore:8080
-  #
+  # beside of that the wiremock instance host a yaml version of the apiconfig
+  # although the server is not functionable the result should be a yaml as json
+  # interpreted gui
   #
   wiremock-petstore:
     build: ./wiremock/petstore
     ports:
     - "8081:8080"
 
+  ##############################################
+  # The Original Pet Store with full functionality :) lol love you guys
+  #
+  # and this should be loadable through a ufp-swagger-proxy gui
+  # using url
+  # http://swagger-petstore:8080
+  #
+  #
   swagger-petstore:
     image: swaggerapi/petstore
     ports:
-    - 8082:8080
+    - "8082:8080"

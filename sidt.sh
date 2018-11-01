@@ -20,6 +20,7 @@ SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
 
 STACK_LOCATION="${SCRIPT_HOME}componenttest/docker-compose-"
 STACK_LOCATION_SERVICE="${STACK_LOCATION}service.yml"
+BUILD_DEPENDENCIES="${STACK_LOCATION}dependencies.yml"
 STACK_LOCATION_INFRA="${STACK_LOCATION}infrastructure.yml"
 STACK_LOCATION_DEBUG="${STACK_LOCATION}debug.yml"
 STACK_LOCATION_TEST="${STACK_LOCATION}test.yml"
@@ -46,6 +47,8 @@ help() {
   echo " "
   echo " SIDT Cli"
   echo " "
+  echo " ./sidt.sh -[action] stack "
+  echo " "
   echo " Starts/Stops the local stack and their debug-tools."
   echo " Options:"
   echo "   -h          Show this help"
@@ -61,6 +64,7 @@ help() {
   echo "     infra     The infrastructure needed by the services"
   echo "     service   The involved services"
   echo "     debug     The debug tools"
+  echo "     dependencies Dependencies"
   echo "     all       All these stacks"
   echo "     *any      Any other componenttest/docker-compose-[*any].yml"
   echo ""
@@ -103,6 +107,11 @@ startStack() {
 	log "Building main docker image $PROJECT_NAME:$VERSION"
         docker build   --no-cache -t $PROJECT_NAME:$VERSION  -t $PROJECT_NAME:latest .
     fi
+	  if [ "$COMPOSE_FILENAME" = "$BUILD_DEPENDENCIES" ]; then
+    	#    hnandle call to docker build of main service in root Dockerfile
+	log "Building dependencies docker image $PROJECT_NAME-dependencies:$VERSION"
+        docker build   -f Dockerfile.dependencies  --no-cache -t $PROJECT_NAME-dependencies:$VERSION  -t $PROJECT_NAME-dependencies:latest .
+    fi
 
 		docker-compose -f $COMPOSE_FILENAME -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
 
@@ -115,7 +124,7 @@ stopStack() {
     COMPOSE_FILENAME=$1
 	log "Stopping Stack ${COMPOSE_FILENAME}"
 
-    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down --rmi all
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down
 }
 
 logAllImages() {
@@ -158,6 +167,10 @@ if [ "$#" -ge 1 ]; then
 fi
 
 while getopts 'u:d:p:l:s:chb' OPTION; do
+echo "-------------------------------"
+echo "--${VARNAME}-----------------------------"
+echo "-------------------------------"
+echo "-------------------------------"
   case $OPTION in
     b)
     	log "Background flag -b found, starting in background"
@@ -203,6 +216,7 @@ while getopts 'u:d:p:l:s:chb' OPTION; do
         help
         exit 0
     ;;
+
   esac
 done
 

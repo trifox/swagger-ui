@@ -4,6 +4,7 @@ import { createSelector } from 'reselect'
 import { Map } from 'immutable'
 import win from '../window'
 import yaml from 'js-yaml'
+import UrlParse from 'url-parse'
 
 export default function downloadUrlPlugin (toolbox) {
   let {fn} = toolbox
@@ -16,11 +17,12 @@ export default function downloadUrlPlugin (toolbox) {
       url = url || specSelectors.url()
       specActions.updateLoadingStatus('loading')
       errActions.clear({source: 'fetch'})
-
+      const parsedOriginalUrl = new UrlParse(url)
       const proxyHost = `${window.location.hostname}:${window.location.port}`
       const proxy = `${window.location.protocol}//${proxyHost}/proxy/`
       const proxyUrl = `${proxy}${url}`
       console.log('Original Url ', url)
+      console.log('Original Url ', parsedOriginalUrl)
       console.log('Proxy Url ', proxyUrl)
       fetch({
         url: proxyUrl,
@@ -48,16 +50,37 @@ export default function downloadUrlPlugin (toolbox) {
           if (res.headers['content-type'].includes('json')) {
 
             console.log('Application JSON Received PROXYING API URL')
-            const original = JSON.parse(bodyText)
-            console.log('ORIGINAL IS ', original)
-            original.host = `${proxyHost}/proxy/http://${original.host}`
-            bodyText = JSON.stringify(original)
+            const originalSwagger = JSON.parse(bodyText)
+            console.log('ORIGINAL IS ', originalSwagger)
+
+            if (originalSwagger.host.indexOf('http') !== 0) {
+
+              console.log('Proxy Url no protocol found'  )
+              // protocol is not provided in swagger def
+              originalSwagger.host = `${parsedOriginalUrl.protocol}//${originalSwagger.host}`
+
+              console.log('Proxy Url protocol added',originalSwagger.host   )
+            }
+
+            const originalSwaggerhostParsed = new UrlParse(originalSwagger.host)
+            console.log('ORIGINAL IS ', originalSwagger)
+
+            const hostRewrite = originalSwaggerhostParsed.host.replace('localhost', parsedOriginalUrl.host)
+            console.log('Checking parsedOriginalUrl', parsedOriginalUrl)
+            console.log('Checking originalSwaggerhostParsed', originalSwaggerhostParsed)
+            console.log('Checking originalSwagger.host', originalSwagger.host)
+            console.log('Checking hostRewrite ', hostRewrite)
+            originalSwagger.host = `${proxyHost}/proxy/http://${hostRewrite}`
+
+            console.log('Swagger Rewriteen is', originalSwagger.host)
+
+            bodyText = JSON.stringify(originalSwagger)
           } else if (res.headers['content-type'].includes('json')) {
 
             console.log('Application YAML Received Proxying API URL')
-            const original = yaml.safeLoad(bodyText)
-            original.host = `${proxyHost}/proxy/http://${original.host}`
-            bodyText = JSON.stringify(original)
+            const originalSwagger2 = yaml.safeLoad(bodyText)
+            originalSwagger2.host = `${proxyHost}/proxy/http://${originalSwagger2.host}`
+            bodyText = JSON.stringify(originalSwagger2)
           }
         }
         specActions.updateLoadingStatus('success')

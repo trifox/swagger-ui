@@ -3,7 +3,7 @@ services:
   ufp-swagger-proxy:
     image: ufp-swagger-proxy-app:6
     environment:
-    - URL=http://wiremock-petstore:8080/v2/swagger.json
+    - URL=http://swagger-petstore:8080/api/swagger.json
     ports:
     - "3000:8080"
 #  ufp-swagger-proxy2:
