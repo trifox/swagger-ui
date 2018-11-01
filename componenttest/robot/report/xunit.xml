@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="1" tests="2" errors="0" name="Tests" skip="0">
+<testcase classname="Tests.Test.HelloWorld" name="HelloWorld" time="0">
+</testcase>
+<testcase classname="Tests.Test.TestDebugSetup" name="Test Debug Setup Index" time="7">
+<failure message="Text 'UFP' did not appear in 5 seconds." type="AssertionError"></failure>
+</testcase>
+</testsuite>

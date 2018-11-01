@@ -10,7 +10,6 @@ COPY ./ /build
 
 # build swagger ui dist/ \
 RUN npm run build
-
 #  goto app-proxy which forwards requests and serves as file host for the swaggerui dist files
 
 WORKDIR /build/app-proxy

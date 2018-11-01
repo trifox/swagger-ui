@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class Schemes extends React.Component {
 
@@ -11,43 +11,46 @@ export default class Schemes extends React.Component {
     method: PropTypes.string,
   }
 
-  componentWillMount() {
-    let { schemes } = this.props
+  componentWillMount () {
+    let {schemes} = this.props
 
     //fire 'change' event to set default 'value' of select
     this.setScheme(schemes.first())
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ( !this.props.currentScheme || !nextProps.schemes.includes(this.props.currentScheme) ) {
+  componentWillReceiveProps (nextProps) {
+    if (!this.props.currentScheme || !nextProps.schemes.includes(this.props.currentScheme)) {
       // if we don't have a selected currentScheme or if our selected scheme is no longer an option,
       // then fire 'change' event and select the first scheme in the list of options
       this.setScheme(nextProps.schemes.first())
     }
   }
 
-  onChange =( e ) => {
-    this.setScheme( e.target.value )
+  onChange = (e) => {
+    this.setScheme(e.target.value)
   }
 
-  setScheme = ( value ) => {
-    let { path, method, specActions } = this.props
+  setScheme = (value) => {
+    let {path, method, specActions} = this.props
 
-    specActions.setScheme( value, path, method )
+    specActions.setScheme(value, path, method)
   }
 
-  render() {
-    let { schemes, currentScheme } = this.props
+  render () {
+    let {schemes, currentScheme} = this.props
 
+    console.log('RENDERING SCHEME', this.props)
     return (
-      <label htmlFor="schemes">
-        <span className="schemes-title">Schemes</span>
-        <select onChange={ this.onChange } value={currentScheme}>
-          { schemes.valueSeq().map(
-            ( scheme ) => <option value={ scheme } key={ scheme }>{ scheme }</option>
+      <label htmlFor="schemes" >
+        <span className="schemes-title" >Schemes</span >
+        <select onChange={this.onChange}
+                value={currentScheme} >
+          {schemes.valueSeq().map(
+            (scheme) => <option value={scheme}
+                                key={scheme} >{scheme}</option >
           ).toArray()}
-        </select>
-      </label>
+        </select >
+      </label >
     )
   }
 }

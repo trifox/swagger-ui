@@ -15,6 +15,36 @@ services:
     - CFG_BRAND_LABEL=Dev Swagger UI
 
 
+    - CFG_MENU_0_LABEL=Ufp Swagger Proxy
+    - CFG_MENU_0_LINK=http://localhost:3000/
+
+    - CFG_MENU_1_LABEL=Swagger Petstore
+    - CFG_MENU_1_LINK=http://localhost:8081/
+
+    - CFG_MENU_2_LABEL=Wiremock Petstore
+    - CFG_MENU_2_LINK=http://localhost:8084
+
+    - CFG_MENU_3_LABEL=Test Report
+    - CFG_MENU_3_LINK=http://localhost:8083/report.html
+
+
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TITLE=Ufp Swagger Proxy Debug Entrypoint
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_COLOR=secondary
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TEXT=This debug page is made extra for you developing your app, <p>Ufp Swagger Proxy provides a swagger gui which routes all api requests to its own proxy<p>
+
+
     ports:
     - "8080:3000"
 
+
+  ##############################################
+  # The Test Report is hosted using a nginx
+  #
+  # making it possible to view the test run report under localhost:8083
+  #
+  test-report:
+    image: nginx
+    volumes:
+    - ./robot/report:/usr/share/nginx/html
+    ports:
+    - "8083:80"

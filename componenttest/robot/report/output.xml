@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181101 22:59:11.188" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
+<suite source="/opt/robotframework/tests" id="s1" name="Tests">
+<suite source="/opt/robotframework/tests/test" id="s1-s1" name="Test">
+<suite source="/opt/robotframework/tests/test/HelloWorld.robot" id="s1-s1-s1" name="HelloWorld">
+<test id="s1-s1-s1-t1" name="HelloWorld">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hello World</arg>
+</arguments>
+<status status="PASS" endtime="20181101 22:59:11.258" starttime="20181101 22:59:11.257"></status>
+</kw>
+<tags>
+<tag>playground</tag>
+</tags>
+<status status="PASS" endtime="20181101 22:59:11.258" critical="no" starttime="20181101 22:59:11.256"></status>
+</test>
+<status status="PASS" endtime="20181101 22:59:11.259" starttime="20181101 22:59:11.251"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestDebugSetup.robot" id="s1-s1-s2" name="TestDebugSetup">
+<test id="s1-s1-s2-t1" name="Test Debug Setup Index">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181101 22:59:11.493" level="INFO">Opening browser 'Chrome' to base url 'http://development-overview:3000'.</msg>
+<status status="PASS" endtime="20181101 22:59:13.525" starttime="20181101 22:59:11.492"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>UFP</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181101 22:59:19.257" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181101 22:59:19.257" starttime="20181101 22:59:18.755"></status>
+</kw>
+<msg timestamp="20181101 22:59:19.259" level="FAIL">Text 'UFP' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20181101 22:59:19.259" starttime="20181101 22:59:13.526"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="FAIL" endtime="20181101 22:59:19.260" critical="no" starttime="20181101 22:59:11.490">Text 'UFP' did not appear in 5 seconds.</status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181101 22:59:19.262" starttime="20181101 22:59:11.261"></status>
+</suite>
+<status status="PASS" endtime="20181101 22:59:19.272" starttime="20181101 22:59:11.248"></status>
+</suite>
+<status status="PASS" endtime="20181101 22:59:19.277" starttime="20181101 22:59:11.193"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="0">Critical Tests</stat>
+<stat fail="1" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat info="critical" fail="0" pass="0">critical</stat>
+<stat info="non-critical" fail="0" pass="0">noncritical</stat>
+<stat fail="1" pass="0">debug</stat>
+<stat fail="1" pass="0">non-critical</stat>
+<stat fail="0" pass="1">playground</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Tests" pass="1">Tests</stat>
+<stat fail="1" id="s1-s1" name="Test" pass="1">Tests.Test</stat>
+<stat fail="0" id="s1-s1-s1" name="HelloWorld" pass="1">Tests.Test.HelloWorld</stat>
+<stat fail="1" id="s1-s1-s2" name="TestDebugSetup" pass="0">Tests.Test.TestDebugSetup</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

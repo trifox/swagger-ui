@@ -121,7 +121,7 @@ export default class Info extends React.Component {
     return (
       <div className="info">
         <hgroup className="main">
-          <h2 className="title" >UFP PROXIED - { title }
+          <h2 className="title" ><VersionStamp version="UFP PROXIED"></VersionStamp> { title }
             { version && <VersionStamp version={version}></VersionStamp> }
           </h2>
           { host || basePath ? <InfoBasePath host={ host } basePath={ basePath } /> : null }

@@ -55,27 +55,27 @@ export default function downloadUrlPlugin (toolbox) {
 
             if (originalSwagger.host.indexOf('http') !== 0) {
 
-              console.log('Proxy Url no protocol found'  )
+              console.log('Proxy Url no protocol found')
               // protocol is not provided in swagger def
               originalSwagger.host = `${parsedOriginalUrl.protocol}//${originalSwagger.host}`
 
-              console.log('Proxy Url protocol added',originalSwagger.host   )
+              console.log('Proxy Url protocol added', originalSwagger.host)
             }
 
             const originalSwaggerhostParsed = new UrlParse(originalSwagger.host)
             console.log('ORIGINAL IS ', originalSwagger)
 
-            const hostRewrite = originalSwaggerhostParsed.host.replace('localhost', parsedOriginalUrl.host)
+            const hostRewrite = originalSwaggerhostParsed.hostname.replace('localhost', parsedOriginalUrl.hostname)
             console.log('Checking parsedOriginalUrl', parsedOriginalUrl)
             console.log('Checking originalSwaggerhostParsed', originalSwaggerhostParsed)
             console.log('Checking originalSwagger.host', originalSwagger.host)
             console.log('Checking hostRewrite ', hostRewrite)
-            originalSwagger.host = `${proxyHost}/proxy/http://${hostRewrite}`
+            originalSwagger.host = `${proxyHost}/proxy/http://${hostRewrite || parsedOriginalUrl.hostname}:${parsedOriginalUrl.port || '80'}`
 
             console.log('Swagger Rewriteen is', originalSwagger.host)
 
             bodyText = JSON.stringify(originalSwagger)
-          } else if (res.headers['content-type'].includes('json')) {
+          } else if (res.headers['content-type'].includes('yaml')) {
 
             console.log('Application YAML Received Proxying API URL')
             const originalSwagger2 = yaml.safeLoad(bodyText)
