@@ -12,8 +12,8 @@ ACTIVE_STACKS=(infra service debug test)
 ###
 # Variables
 ###
-export PROJECT_NAME="ufp-swagger-proxy-app"
-export VERSION=6
+export PROJECT_NAME="ckleinhuis/ufp-swagger-proxy"
+export VERSION=10
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
