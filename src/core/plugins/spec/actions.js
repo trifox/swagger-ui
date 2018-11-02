@@ -340,9 +340,9 @@ export const executeRequest = (req) =>
     let { pathName, method, operation } = req
     let { requestInterceptor, responseInterceptor } = getConfigs()
 
-    
+
     let op = operation.toJS()
-    
+
     // ensure that explicitly-included params are in the request
 
     if(op && op.parameters && op.parameters.length) {
@@ -416,7 +416,7 @@ export const executeRequest = (req) =>
     // track duration of request
     const startTime = Date.now()
 
-
+   console.log('EXECUTING REQUEST',req)
     return fn.execute(req)
     .then( res => {
       res.duration = Date.now() - startTime

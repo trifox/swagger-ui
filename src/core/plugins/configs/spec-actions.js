@@ -14,7 +14,7 @@ export const getConfigByUrl = (req, cb)=> ({ specActions }) => {
   function next(res) {
     if (res instanceof Error || res.status >= 400) {
       specActions.updateLoadingStatus("failedConfig")
-      specActions.updateLoadingStatus("failedConfig")
+      specActions.updateLoadingStatus("failedConfig")  // todo: fixme: double call neccesary?
       specActions.updateUrl("")
       console.error(res.statusText + " " + req.url)
       cb(null)
