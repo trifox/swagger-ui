@@ -16,13 +16,13 @@ services:
 
 
     - CFG_MENU_0_LABEL=Ufp Swagger Proxy
-    - CFG_MENU_0_LINK=http://localhost:3000/
+    - CFG_MENU_0_LINK=http://localhost:13000/
 
-    - CFG_MENU_1_LABEL=Swagger Petstore
-    - CFG_MENU_1_LINK=http://localhost:8081/
+    - CFG_MENU_1_LABEL=Wiremock Petstore
+    - CFG_MENU_1_LINK=http://localhost:8081/__admin
 
-    - CFG_MENU_2_LABEL=Wiremock Petstore
-    - CFG_MENU_2_LINK=http://localhost:8084
+    - CFG_MENU_2_LABEL=Swagger Petstore
+    - CFG_MENU_2_LINK=http://localhost:8082
 
     - CFG_MENU_3_LABEL=Test Report
     - CFG_MENU_3_LINK=http://localhost:8083/report.html
