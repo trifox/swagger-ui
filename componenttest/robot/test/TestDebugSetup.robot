@@ -11,6 +11,9 @@ Test Debug Setup Index
     [Documentation]    testing develop index page
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
-    Wait Until Page Contains    UFP
-    Wait Until Page Contains    SWAGGER-PROXY
+    Wait Until Page Contains    Dev Swagger UI
+    Wait Until Page Contains    Ufp Swagger Proxy
+    Wait Until Page Contains    Wiremock Petstore
+    Wait Until Page Contains    Swagger Petstore
+    Wait Until Page Contains    Test Report
     Capture Page Screenshot    ScreenshotDebugEntryPoint.png
