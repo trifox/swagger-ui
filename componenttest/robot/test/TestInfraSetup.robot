@@ -15,6 +15,7 @@ Test Wiremock Petstrore
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}/__admin    Chrome
     Wait Until Page Contains    mappings
     Capture Page Screenshot    ScreenshotInfraWiremock.png
+    Close Browser
 
 Test Swagger Petstrore
     [Documentation]    testing develop index page
@@ -22,3 +23,4 @@ Test Swagger Petstrore
     Open Browser    http://${SERVICE_NAME2}:${SERVICE_PORT2}    Chrome
     Wait Until Page Contains    swagger
     Capture Page Screenshot    ScreenshotInfraPetstore.png
+    Close Browser

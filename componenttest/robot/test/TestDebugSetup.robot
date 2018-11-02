@@ -17,3 +17,4 @@ Test Debug Setup Index
     Wait Until Page Contains    Swagger Petstore
     Wait Until Page Contains    Test Report
     Capture Page Screenshot    ScreenshotDebugEntryPoint.png
+    Close Browser
