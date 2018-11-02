@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="1" tests="7" errors="0" name="Tests" skip="0">
+<testcase classname="Tests.Test.HelloWorld" name="HelloWorld" time="0">
+</testcase>
+<testcase classname="Tests.Test.TestDebugSetup" name="Test Debug Setup Index" time="7">
+<failure message="Text 'Dev Swagger UI' did not appear in 5 seconds." type="AssertionError"></failure>
+</testcase>
+<testcase classname="Tests.Test.TestInfraSetup" name="Test Wiremock Petstrore" time="2">
+</testcase>
+<testcase classname="Tests.Test.TestInfraSetup" name="Test Swagger Petstrore" time="2">
+</testcase>
+<testcase classname="Tests.Test.TestService" name="Test Ufp Swagger Proxy" time="2">
+</testcase>
+<testcase classname="Tests.Test.TestService" name="Test Ufp Swagger Proxy Performs" time="4">
+</testcase>
+<testcase classname="Tests.Test.TestService" name="Test Ufp Swagger Proxy Performs With HTTP" time="4">
+</testcase>
+</testsuite>

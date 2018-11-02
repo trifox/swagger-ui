@@ -102,6 +102,7 @@ export default class LiveResponse extends React.Component {
                 {
                   isError ? <span>
                               {`${response.get("name")}: ${response.get("message")}`}
+                      <br/>Be sure to check unsafe protocol 'http' is used, only this is supported by the proxy backend
                             </span>
                           : null
                 }

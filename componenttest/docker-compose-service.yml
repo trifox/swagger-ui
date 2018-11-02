@@ -1,0 +1,14 @@
+version: '2'
+services:
+  ufp-swagger-proxy:
+    image: ckleinhuis/ufp-swagger-proxy:10
+    environment:
+    - URL=http://swagger-petstore:8080/api/swagger.json
+    ports:
+    - "3000:8080"
+  ufp-swagger-proxy-yaml:
+    image: ckleinhuis/ufp-swagger-proxy:10
+    environment:
+    - URL=http://wiremock-petstore:8080/v2/swagger.yaml
+    ports:
+    - "3001:8080"

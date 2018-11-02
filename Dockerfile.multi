@@ -1,0 +1,5 @@
+FROM node:8-slim as BUILD
+
+
+
+FROM node:8-slim

@@ -434,7 +434,7 @@ export const operationScheme = ( state, path, method ) => {
 }
 
 export const canExecuteScheme = ( state, path, method ) => {
-  return ["http", "https"].indexOf(operationScheme(state, path, method)) > -1
+  return ["http"].indexOf(operationScheme(state, path, method)) > -1
 }
 
 export const validateBeforeExecute = ( state, pathMethod ) => {

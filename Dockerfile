@@ -1,11 +1,26 @@
-FROM nginx:1.15-alpine
+# Looking for information on environment variables?
+# We don't declare them here — take a look at our docs.
+# https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
+# WE USE a dependencies image where the installed dependencies are cached, build using ./sidt.sh -u dependencies -c
+FROM  ufp-swagger-proxy-app-dependencies:6  as build
 
+WORKDIR /build
+
+COPY ./ /build
+
+# build swagger ui dist/ \
+RUN npm run build
+#  goto app-proxy which forwards requests and serves as file host for the swaggerui dist files
+
+WORKDIR /build/app-proxy
+
+# create dist file :)
+RUN npm run dist
+
+
+FROM node:8-slim    as final
 LABEL maintainer="fehguy"
 
-ENV VERSION "v2.2.10"
-ENV FOLDER "swagger-ui-2.2.10"
-ENV API_URL "https://petstore.swagger.io/v2/swagger.json"
-ENV API_URLS ""
 ENV API_KEY "**None**"
 ENV OAUTH_CLIENT_ID "**None**"
 ENV OAUTH_CLIENT_SECRET "**None**"
@@ -15,16 +30,13 @@ ENV OAUTH_ADDITIONAL_PARAMS "**None**"
 ENV SWAGGER_JSON "/app/swagger.json"
 ENV PORT 8080
 ENV BASE_URL ""
-ENV CONFIG_URL ""
 
-COPY nginx.conf /etc/nginx/
+COPY --from=build /build/dist/* /usr/share/nginx/html/
+COPY --from=build /build/docker/run.sh /usr/share/nginx/
+COPY --from=build /build/app-proxy/dist /usr/share/nginx/html/app-proxy
+COPY --from=build /build/docker/configurator /usr/share/nginx/configurator
 
-# copy swagger files to the `/js` folder
-COPY ./dist/* /usr/share/nginx/html/
-COPY ./docker-run.sh /usr/share/nginx/
-
-RUN chmod +x /usr/share/nginx/docker-run.sh
-
+RUN chmod +x /usr/share/nginx/run.sh
 EXPOSE 8080
-
-CMD ["sh", "/usr/share/nginx/docker-run.sh"]
+RUN ls /usr/share/nginx/html/
+CMD ["sh", "/usr/share/nginx/run.sh"]
