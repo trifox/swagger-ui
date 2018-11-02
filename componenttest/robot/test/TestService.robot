@@ -24,8 +24,10 @@ Test Ufp Swagger Proxy Performs
     Capture Page Screenshot    ScreenshotServiceStart.png
     Click Element    class:try-out__btn
     Capture Page Screenshot    ScreenshotServiceStart.png
-    Select From List By Value    class:select available
-    Capture Page Screenshot    ScreenshotServiceStart.png
-    Click Element    link:Execute
     Click Element    //html//body//div[@id='swagger-ui']//section[@class='swagger-ui swagger-container']//div[@class='swagger-ui']//div[2]//div[@class='wrapper'][1]//section[@class='block col-12 block-desktop col-12-desktop']//div//span[1]//div[@class='opblock-tag-section is-open']//div//span[3]//div[@id='operations-pet-findPetsByStatus']//div[2]//div[@class='opblock-body']//div[@class='opblock-section']//div[@class='table-container']//table[@class='parameters']//tbody//tr//td[@class='col parameters-col_description']//select//option[1]
     Capture Page Screenshot    ScreenshotServiceStart.png
+    Click Button    Execute
+    Capture Page Screenshot    ScreenshotServiceStart.png
+    Wait Until Page Contains    TypeError: Failed to fetch
+    Scroll Element Into View    class:responses-wrapper
+    Capture Page Screenshot    ScreenshotServiceFailRequestHttp.png

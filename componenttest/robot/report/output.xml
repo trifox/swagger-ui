@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181102 01:01:25.766" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
+<suite source="/opt/robotframework/tests" id="s1" name="Tests">
+<suite source="/opt/robotframework/tests/test" id="s1-s1" name="Test">
+<suite source="/opt/robotframework/tests/test/HelloWorld.robot" id="s1-s1-s1" name="HelloWorld">
+<test id="s1-s1-s1-t1" name="HelloWorld">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hello World</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:25.837" starttime="20181102 01:01:25.836"></status>
+</kw>
+<tags>
+<tag>playground</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:25.837" critical="no" starttime="20181102 01:01:25.835"></status>
+</test>
+<status status="PASS" endtime="20181102 01:01:25.838" starttime="20181102 01:01:25.830"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestDebugSetup.robot" id="s1-s1-s2" name="TestDebugSetup">
+<test id="s1-s1-s2-t1" name="Test Debug Setup Index">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181102 01:01:26.069" level="INFO">Opening browser 'Chrome' to base url 'http://development-overview:3000'.</msg>
+<status status="PASS" endtime="20181102 01:01:33.286" starttime="20181102 01:01:26.068"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Dev Swagger UI</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:33.336" starttime="20181102 01:01:33.287"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Ufp Swagger Proxy</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:33.379" starttime="20181102 01:01:33.336"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Wiremock Petstore</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:33.424" starttime="20181102 01:01:33.380"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Swagger Petstore</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:33.467" starttime="20181102 01:01:33.424"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Test Report</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:33.510" starttime="20181102 01:01:33.468"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotDebugEntryPoint.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:34.037" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotDebugEntryPoint.png"&gt;&lt;img src="ScreenshotDebugEntryPoint.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:34.037" starttime="20181102 01:01:33.510"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:34.037" critical="no" starttime="20181102 01:01:26.066"></status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181102 01:01:34.040" starttime="20181102 01:01:25.841"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestInfraSetup.robot" id="s1-s1-s3" name="TestInfraSetup">
+<test id="s1-s1-s3-t1" name="Test Wiremock Petstrore">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}/__admin</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181102 01:01:34.057" level="INFO">Opening browser 'Chrome' to base url 'http://wiremock-petstore:8080/__admin'.</msg>
+<status status="PASS" endtime="20181102 01:01:35.884" starttime="20181102 01:01:34.056"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>mappings</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:35.940" starttime="20181102 01:01:35.885"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotInfraWiremock.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:36.420" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotInfraWiremock.png"&gt;&lt;img src="ScreenshotInfraWiremock.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:36.420" starttime="20181102 01:01:35.940"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:36.421" critical="no" starttime="20181102 01:01:34.054"></status>
+</test>
+<test id="s1-s1-s3-t2" name="Test Swagger Petstrore">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME2}:${SERVICE_PORT2}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181102 01:01:36.426" level="INFO">Opening browser 'Chrome' to base url 'http://swagger-petstore:8080'.</msg>
+<status status="PASS" endtime="20181102 01:01:44.153" starttime="20181102 01:01:36.425"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>swagger</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:44.211" starttime="20181102 01:01:44.153"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotInfraPetstore.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:44.750" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotInfraPetstore.png"&gt;&lt;img src="ScreenshotInfraPetstore.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:44.750" starttime="20181102 01:01:44.211"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:44.751" critical="no" starttime="20181102 01:01:36.423"></status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181102 01:01:44.753" starttime="20181102 01:01:34.046"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestService.robot" id="s1-s1-s4" name="TestService">
+<test id="s1-s1-s4-t1" name="Test Ufp Swagger Proxy">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181102 01:01:44.783" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181102 01:01:47.866" starttime="20181102 01:01:44.782"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>ufp-swagger</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:48.053" starttime="20181102 01:01:47.867"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:48.666" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:48.666" starttime="20181102 01:01:48.054"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:48.667" critical="no" starttime="20181102 01:01:44.777"></status>
+</test>
+<test id="s1-s1-s4-t2" name="Test Ufp Swagger Proxy Performs">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181102 01:01:48.672" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181102 01:01:52.045" starttime="20181102 01:01:48.671"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>ufp-swagger</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:52.258" starttime="20181102 01:01:52.045"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:52.874" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:52.875" starttime="20181102 01:01:52.258"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id:operations-pet-findPetsByStatus</arg>
+</arguments>
+<msg timestamp="20181102 01:01:52.876" level="INFO">Clicking element 'id:operations-pet-findPetsByStatus'.</msg>
+<status status="PASS" endtime="20181102 01:01:53.167" starttime="20181102 01:01:52.876"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:54.323" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:54.323" starttime="20181102 01:01:53.168"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>class:try-out__btn</arg>
+</arguments>
+<msg timestamp="20181102 01:01:54.324" level="INFO">Clicking element 'class:try-out__btn'.</msg>
+<status status="PASS" endtime="20181102 01:01:54.522" starttime="20181102 01:01:54.324"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:55.166" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:55.167" starttime="20181102 01:01:54.522"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//html//body//div[@id='swagger-ui']//section[@class='swagger-ui swagger-container']//div[@class='swagger-ui']//div[2]//div[@class='wrapper'][1]//section[@class='block col-12 block-desktop col-12-desktop']//div//span[1]//div[@class='opblock-tag-section is-open']//div//span[3]//div[@id='operations-pet-findPetsByStatus']//div[2]//div[@class='opblock-body']//div[@class='opblock-section']//div[@class='table-container']//table[@class='parameters']//tbody//tr//td[@class='col parameters-col_description']//select//option[1]</arg>
+</arguments>
+<msg timestamp="20181102 01:01:55.168" level="INFO">Clicking element '//html//body//div[@id='swagger-ui']//section[@class='swagger-ui swagger-container']//div[@class='swagger-ui']//div[2]//div[@class='wrapper'][1]//section[@class='block col-12 block-desktop col-12-desktop']//div//span[1]//div[@class='opblock-tag-section is-open']//div//span[3]//div[@id='operations-pet-findPetsByStatus']//div[2]//div[@class='opblock-body']//div[@class='opblock-section']//div[@class='table-container']//table[@class='parameters']//tbody//tr//td[@class='col parameters-col_description']//select//option[1]'.</msg>
+<status status="PASS" endtime="20181102 01:01:55.439" starttime="20181102 01:01:55.167"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:56.109" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:56.110" starttime="20181102 01:01:55.439"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Execute</arg>
+</arguments>
+<msg timestamp="20181102 01:01:56.111" level="INFO">Clicking button 'Execute'.</msg>
+<status status="PASS" endtime="20181102 01:01:56.679" starttime="20181102 01:01:56.110"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:57.376" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:57.376" starttime="20181102 01:01:56.680"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>TypeError: Failed to fetch</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:57.431" starttime="20181102 01:01:57.376"></status>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>class:responses-wrapper</arg>
+</arguments>
+<status status="PASS" endtime="20181102 01:01:57.535" starttime="20181102 01:01:57.432"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceFailRequestHttp.png</arg>
+</arguments>
+<msg timestamp="20181102 01:01:58.173" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceFailRequestHttp.png"&gt;&lt;img src="ScreenshotServiceFailRequestHttp.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181102 01:01:58.174" starttime="20181102 01:01:57.536"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181102 01:01:58.174" critical="no" starttime="20181102 01:01:48.669"></status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181102 01:01:58.177" starttime="20181102 01:01:44.765"></status>
+</suite>
+<status status="PASS" endtime="20181102 01:01:58.188" starttime="20181102 01:01:25.826"></status>
+</suite>
+<status status="PASS" endtime="20181102 01:01:58.197" starttime="20181102 01:01:25.770"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="0">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+<stat info="critical" fail="0" pass="0">critical</stat>
+<stat info="non-critical" fail="0" pass="0">noncritical</stat>
+<stat fail="0" pass="5">debug</stat>
+<stat fail="0" pass="5">non-critical</stat>
+<stat fail="0" pass="1">playground</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Tests" pass="6">Tests</stat>
+<stat fail="0" id="s1-s1" name="Test" pass="6">Tests.Test</stat>
+<stat fail="0" id="s1-s1-s1" name="HelloWorld" pass="1">Tests.Test.HelloWorld</stat>
+<stat fail="0" id="s1-s1-s2" name="TestDebugSetup" pass="1">Tests.Test.TestDebugSetup</stat>
+<stat fail="0" id="s1-s1-s3" name="TestInfraSetup" pass="2">Tests.Test.TestInfraSetup</stat>
+<stat fail="0" id="s1-s1-s4" name="TestService" pass="2">Tests.Test.TestService</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
