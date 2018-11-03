@@ -1,0 +1,9 @@
+version: '2'
+services:
+  ufp-swagger-proxy:
+    image: ckleinhuis/ufp-swagger-proxy:10
+    environment:
+    - URL=http://test-specs/petstore.json
+    ports:
+    - "3000:8080"
+

@@ -9,6 +9,10 @@ log ""
 
 ACTIVE_STACKS=(infra service debug test)
 
+
+
+SUITE_NAME="-e2e-selenium"
+
 ###
 # Variables
 ###
@@ -18,7 +22,7 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
 
-STACK_LOCATION="${SCRIPT_HOME}componenttest/docker-compose-"
+STACK_LOCATION="${SCRIPT_HOME}componenttest${SUITE_NAME}/docker-compose-"
 STACK_LOCATION_SERVICE="${STACK_LOCATION}service.yml"
 BUILD_DEPENDENCIES="${STACK_LOCATION}dependencies.yml"
 STACK_LOCATION_INFRA="${STACK_LOCATION}infrastructure.yml"

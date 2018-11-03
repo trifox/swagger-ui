@@ -5,12 +5,9 @@ node_modules
 .DS_Store
 .nyc_output
 npm-debug.log*
+app-proxy/dist
 .eslintcache
 *.iml
 selenium-debug.log
 test/e2e/db.json
 docs/_book
-
-# Cypress
-test/e2e-cypress/screenshots
-test/e2e-cypress/videos
