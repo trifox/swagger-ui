@@ -1,12 +1,15 @@
 *** Settings ***
 Documentation     This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job
 Library           SeleniumLibrary
+Resource          common/spec-loader.robot
 
 *** Variables ***
 ${SERVICE_NAME1}    ufp-swagger-proxy
 ${SERVICE_PORT1}    8080
 ${SERVICE_NAME2}    ufp-swagger-proxy-yaml
 ${SERVICE_PORT2}    8080
+${SERVICE_NAME3}    ufp-swagger-proxy-nohost
+${SERVICE_PORT3}    8080
 
 *** Test Cases ***
 Test Ufp Swagger Proxy
@@ -15,6 +18,7 @@ Test Ufp Swagger Proxy
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains    ufp-swagger
     Capture Page Screenshot    ScreenshotServiceStart.png
+    Close Browser
 
 Test Ufp Swagger Proxy Performs
     [Documentation]    testing develop index page
@@ -56,12 +60,17 @@ Test Ufp Swagger Proxy Performs With HTTP
     Scroll Element Into View    class:responses-wrapper
     Capture Page Screenshot    ScreenshotServiceFailRequestHttp.png
     Close Browser
-    Close Browser
 
-*** Keywords ***
 Test Ufp Swagger Proxy With YAML Config Works
     [Documentation]    testing develop index page
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME2}:${SERVICE_PORT2}    Chrome
+    Wait Until Page Contains    ufp-swagger
+    Wait Until Page Contains    uploadImage
+
+Test Ufp Swagger Proxy With Empty Host field in Swagger works
+    [Documentation]    testing develop index page
+    [Tags]    debug    non-critical
+    Open Swagger Config Spec    http://wiremock-petstore:8080/v2/swaggernohost.json
     Wait Until Page Contains    ufp-swagger
     Wait Until Page Contains    uploadImage

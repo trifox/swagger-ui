@@ -10,10 +10,11 @@ ${SERVICE_PORT1}    8080
 Open Swagger Config Spec
     [Arguments]    ${spec}
     [Documentation]    Load a spec file
-    [Tags]    debug    non-critical
+    [Tags]    config  setup
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains Element    class:download-url-input
     Capture Page Screenshot    ScreenshotServiceStart.png
     Input Text    class:download-url-input    ${spec}
     Click Button    Explore
     Sleep    1s
+    Capture Page Screenshot    ScreenshotServiceStart.png

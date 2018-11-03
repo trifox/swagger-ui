@@ -11,3 +11,4 @@ app-proxy/dist
 selenium-debug.log
 test/e2e/db.json
 docs/_book
+componenttest-e2e-selenium/robot/report/

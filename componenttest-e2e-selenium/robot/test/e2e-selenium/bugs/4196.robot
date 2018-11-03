@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation     This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job
+Test Setup        Open Swagger Config Spec    http://test-specs/bugs/4196.yaml
 Library           SeleniumLibrary
 Resource          ../../common/spec-loader.robot
 
@@ -7,7 +8,6 @@ Resource          ../../common/spec-loader.robot
 Test Ufp Swagger Proxy
     [Documentation]    testing develop index page
     [Tags]    debug    non-critical
-    Open Swagger Config Spec    http://test-specs/bugs/4196.yaml
     Open Authorization
     Input Username Passwort    aaa    aaa
     Authorize Button Popup

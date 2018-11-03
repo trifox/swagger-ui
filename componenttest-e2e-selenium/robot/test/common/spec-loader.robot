@@ -17,3 +17,4 @@ Open Swagger Config Spec
     Input Text    class:download-url-input    ${spec}
     Click Button    Explore
     Sleep    1s
+    Capture Page Screenshot    ScreenshotServiceStart.png

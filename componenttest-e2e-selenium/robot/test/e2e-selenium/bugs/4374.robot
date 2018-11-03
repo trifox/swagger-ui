@@ -1,23 +1,17 @@
 *** Settings ***
-Documentation     This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job
+Documentation     bug #4374: OAS3 parameters should be visibly validated in Try-It-Out
+Test Setup        Open Swagger Config Spec    http://test-specs/bugs/4374.yaml
 Library           SeleniumLibrary
 Resource          ../../common/spec-loader.robot
 
 *** Test Cases ***
 Test Ufp Swagger Proxy
-    [Documentation]    testing develop index page
-    [Tags]    debug    non-critical
-    Open Swagger Config Spec    http://test-specs/bugs/4196.yaml
-    Open Authorization
-    Input Username Passwort    aaa    aaa
-    Authorize Button Popup
-    Page Should Contain    aaa
-    Click Button    class:close-modal
-    Open Authorization
-    Click Button    class:auth
-    Input Username Passwort    bbb    bbb
-    Authorize Button Popup
-    Page Should Contain    bbb
+    [Documentation]    indicates an error when a required parameter is not selected
+    Page Should Contain Element    class:opblock-tag-section
+    Page Should Contain    /pet/findByStatus
+    Page Should Contain Element    class:opblock
+    Click Element    class:opblock
+    Page Should Contain Element    class:opblock.is-open
 
 *** Keywords ***
 Open Authorization
