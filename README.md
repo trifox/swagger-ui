@@ -4,6 +4,34 @@ if you are looking for the swagger ui repository go to https://github.com/swagge
 
 this is ufp-swagger-proxy repository which is a swagger ui that routes all request through backend
 
+# Prerequisites
+
+  - docker
+  - bash
+
+# Quickstart
+
+- general developing, please refer to original repo
+- updates from original repo will be merged into here, swaggerui is main development repo for swagger-ui
+
+To execute the build use 
+
+    ./sidt-helm.sh -m
+
+which builds the docker images used by the service, execute the component tests for the areas using
+
+   ./sidt-helm.sh -t
+  
+ 
+start the individual areas and use localhost:8080 as entry point for both ares
+
+    sidt.sh -a componenttest -u all
+  
+and  
+  
+    sidt.sh -a componenttest-e2e-selenium -u all
+  
+  
 
 
  

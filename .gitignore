@@ -12,3 +12,5 @@ selenium-debug.log
 test/e2e/db.json
 docs/_book
 componenttest-e2e-selenium/robot/report/
+stacks/componenttest/robot/report/
+stacks/componenttest-e2e-selenium/robot/report/
