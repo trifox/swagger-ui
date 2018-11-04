@@ -1,17 +1,20 @@
 *** Settings ***
 Documentation     bug #4374: OAS3 parameters should be visibly validated in Try-It-Out
-Test Setup        Open Swagger Config Spec    http://test-specs/bugs/4374.yaml
 Library           SeleniumLibrary
 Resource          ../../common/spec-loader.robot
 
 *** Test Cases ***
 Test Ufp Swagger Proxy
     [Documentation]    indicates an error when a required parameter is not selected
+    Open Swagger Config Spec    http://test-specs/bugs/4374.yaml
     Page Should Contain Element    class:opblock-tag-section
     Page Should Contain    /pet/findByStatus
-    Page Should Contain Element    class:opblock
     Click Element    class:opblock
-    Page Should Contain Element    class:opblock.is-open
+    Page Should Contain Element    //div[contains(@class, 'opblock') and contains(@class, 'is-open')]
+    Click Element    class:try-out__btn
+    Click Element    class:execute
+    Page Should Contain Element    class:parameters-col_description
+    Close Browser
 
 *** Keywords ***
 Open Authorization

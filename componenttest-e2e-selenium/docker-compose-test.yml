@@ -4,6 +4,7 @@ services:
     image: ckleinhuis/ufp-robotframework:12
     environment:
     - LOG_LEVEL=v
+#    - ROBOT_OPTIONS=--include wip
     volumes:
     - ./robot:/opt/robotframework/tests
     - ./robot/report:/opt/robotframework/reports
