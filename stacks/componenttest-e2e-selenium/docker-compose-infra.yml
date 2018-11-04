@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+
+  json-server:
+    image: clue/json-server
+    volumes:
+      - ./json-server:/data
+    ports:
+    - "8081:80"
+
+  test-specs:
+    image: nginx
+    volumes:
+    - ./specs/specs:/usr/share/nginx/html
+    ports:
+    - "8082:80"

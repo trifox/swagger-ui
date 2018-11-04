@@ -2,12 +2,11 @@
 # We don't declare them here — take a look at our docs.
 # https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
 # WE USE a dependencies image where the installed dependencies are cached, build using ./sidt.sh -u dependencies -c
-FROM  ufp-swagger-proxy-app-dependencies:6  as build
+FROM  ckleinhuis/ufp-swagger-proxy-dependencies:11  as build
 
 WORKDIR /build
 
 COPY ./ /build
-
 # build swagger ui dist/ \
 RUN npm run build
 #  goto app-proxy which forwards requests and serves as file host for the swaggerui dist files

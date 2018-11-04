@@ -1,0 +1,2272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181104 10:37:32.058" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
+<suite source="/opt/robotframework/tests" id="s1" name="Tests">
+<suite source="/opt/robotframework/tests/test" id="s1-s1" name="Test">
+<suite source="/opt/robotframework/tests/test/e2e-selenium" id="s1-s1-s1" name="E2E-Selenium">
+<suite source="/opt/robotframework/tests/test/e2e-selenium/bugs" id="s1-s1-s1-s1" name="Bugs">
+<suite source="/opt/robotframework/tests/test/e2e-selenium/bugs/4196.robot" id="s1-s1-s1-s1-s1" name="4196">
+<test id="s1-s1-s1-s1-s1-t1" name="Test Ufp Swagger Proxy">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/bugs/4196.yaml</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:37:32.385" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:37:35.391" starttime="20181104 10:37:32.384"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:37:35.621" starttime="20181104 10:37:35.392"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:36.254" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:36.255" starttime="20181104 10:37:35.621"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:36.256" level="INFO">Typing text 'http://test-specs/bugs/4196.yaml' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:37:36.668" starttime="20181104 10:37:36.255"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:37:36.669" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:37:37.184" starttime="20181104 10:37:36.669"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:37:38.186" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:37:38.186" starttime="20181104 10:37:37.184"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:38.712" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:38.713" starttime="20181104 10:37:38.186"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:38.713" starttime="20181104 10:37:32.383"></status>
+</kw>
+<kw name="Open Authorization">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Authorize</arg>
+</arguments>
+<msg timestamp="20181104 10:37:38.714" level="INFO">Clicking button 'Authorize'.</msg>
+<status status="PASS" endtime="20181104 10:37:38.998" starttime="20181104 10:37:38.714"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:38.998" starttime="20181104 10:37:38.713"></status>
+</kw>
+<kw name="Input Username Passwort">
+<arguments>
+<arg>aaa</arg>
+<arg>aaa</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='wrapper'][2]//section//input</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:39.001" level="INFO">Typing text 'aaa' into text field '//div[@class='wrapper'][2]//section//input'.</msg>
+<status status="PASS" endtime="20181104 10:37:39.230" starttime="20181104 10:37:39.000"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='wrapper'][3]//section/input</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:39.231" level="INFO">Typing password into text field '//div[@class='wrapper'][3]//section/input'.</msg>
+<status status="PASS" endtime="20181104 10:37:39.451" starttime="20181104 10:37:39.230"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:39.452" starttime="20181104 10:37:38.999"></status>
+</kw>
+<kw name="Authorize Button Popup">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='auth-container'][1]//form//div[@class='auth-btn-wrapper']//button[@class='btn modal-btn auth authorize button']</arg>
+</arguments>
+<msg timestamp="20181104 10:37:39.453" level="INFO">Clicking button '//div[@class='auth-container'][1]//form//div[@class='auth-btn-wrapper']//button[@class='btn modal-btn auth authorize button']'.</msg>
+<status status="PASS" endtime="20181104 10:37:39.733" starttime="20181104 10:37:39.453"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:39.733" starttime="20181104 10:37:39.452"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>aaa</arg>
+</arguments>
+<msg timestamp="20181104 10:37:39.790" level="INFO">Current page contains text 'aaa'.</msg>
+<status status="PASS" endtime="20181104 10:37:39.790" starttime="20181104 10:37:39.733"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>class:close-modal</arg>
+</arguments>
+<msg timestamp="20181104 10:37:39.791" level="INFO">Clicking button 'class:close-modal'.</msg>
+<status status="PASS" endtime="20181104 10:37:40.045" starttime="20181104 10:37:39.790"></status>
+</kw>
+<kw name="Open Authorization">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Authorize</arg>
+</arguments>
+<msg timestamp="20181104 10:37:40.046" level="INFO">Clicking button 'Authorize'.</msg>
+<status status="PASS" endtime="20181104 10:37:40.218" starttime="20181104 10:37:40.046"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:40.218" starttime="20181104 10:37:40.045"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>class:auth</arg>
+</arguments>
+<msg timestamp="20181104 10:37:40.219" level="INFO">Clicking button 'class:auth'.</msg>
+<status status="PASS" endtime="20181104 10:37:40.512" starttime="20181104 10:37:40.218"></status>
+</kw>
+<kw name="Input Username Passwort">
+<arguments>
+<arg>bbb</arg>
+<arg>bbb</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='wrapper'][2]//section//input</arg>
+<arg>${user}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:40.514" level="INFO">Typing text 'bbb' into text field '//div[@class='wrapper'][2]//section//input'.</msg>
+<status status="PASS" endtime="20181104 10:37:40.731" starttime="20181104 10:37:40.514"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='wrapper'][3]//section/input</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:40.733" level="INFO">Typing password into text field '//div[@class='wrapper'][3]//section/input'.</msg>
+<status status="PASS" endtime="20181104 10:37:40.943" starttime="20181104 10:37:40.732"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:40.943" starttime="20181104 10:37:40.513"></status>
+</kw>
+<kw name="Authorize Button Popup">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='auth-container'][1]//form//div[@class='auth-btn-wrapper']//button[@class='btn modal-btn auth authorize button']</arg>
+</arguments>
+<msg timestamp="20181104 10:37:40.945" level="INFO">Clicking button '//div[@class='auth-container'][1]//form//div[@class='auth-btn-wrapper']//button[@class='btn modal-btn auth authorize button']'.</msg>
+<status status="PASS" endtime="20181104 10:37:41.154" starttime="20181104 10:37:40.944"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:41.154" starttime="20181104 10:37:40.944"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>bbb</arg>
+</arguments>
+<msg timestamp="20181104 10:37:41.211" level="INFO">Current page contains text 'bbb'.</msg>
+<status status="PASS" endtime="20181104 10:37:41.211" starttime="20181104 10:37:41.155"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:37:41.250" starttime="20181104 10:37:41.212"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181104 10:37:41.250" critical="no" starttime="20181104 10:37:32.381"></status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181104 10:37:41.253" starttime="20181104 10:37:32.130"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/e2e-selenium/bugs/4374.robot" id="s1-s1-s1-s1-s2" name="4374">
+<test id="s1-s1-s1-s1-s2-t1" name="Test Ufp Swagger Proxy">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/bugs/4374.yaml</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:37:41.279" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:37:44.504" starttime="20181104 10:37:41.279"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:37:44.749" starttime="20181104 10:37:44.505"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:45.347" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:45.347" starttime="20181104 10:37:44.750"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:45.348" level="INFO">Typing text 'http://test-specs/bugs/4374.yaml' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:37:45.733" starttime="20181104 10:37:45.347"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:37:45.734" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:37:46.316" starttime="20181104 10:37:45.733"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:37:47.318" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:37:47.319" starttime="20181104 10:37:46.317"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:47.870" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:47.870" starttime="20181104 10:37:47.319"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:47.870" starttime="20181104 10:37:41.278"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:37:47.911" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:37:47.911" starttime="20181104 10:37:47.871"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>/pet/findByStatus</arg>
+</arguments>
+<msg timestamp="20181104 10:37:47.959" level="INFO">Current page contains text '/pet/findByStatus'.</msg>
+<status status="PASS" endtime="20181104 10:37:47.959" starttime="20181104 10:37:47.912"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>class:opblock</arg>
+</arguments>
+<msg timestamp="20181104 10:37:47.960" level="INFO">Clicking element 'class:opblock'.</msg>
+<status status="PASS" endtime="20181104 10:37:48.426" starttime="20181104 10:37:47.960"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>//div[contains(@class, 'opblock') and contains(@class, 'is-open')]</arg>
+</arguments>
+<msg timestamp="20181104 10:37:48.541" level="INFO">Current page contains element '//div[contains(@class, 'opblock') and contains(@class, 'is-open')]'.</msg>
+<status status="PASS" endtime="20181104 10:37:48.541" starttime="20181104 10:37:48.426"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>class:try-out__btn</arg>
+</arguments>
+<msg timestamp="20181104 10:37:48.542" level="INFO">Clicking element 'class:try-out__btn'.</msg>
+<status status="PASS" endtime="20181104 10:37:48.739" starttime="20181104 10:37:48.541"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>class:execute</arg>
+</arguments>
+<msg timestamp="20181104 10:37:48.740" level="INFO">Clicking element 'class:execute'.</msg>
+<status status="PASS" endtime="20181104 10:37:49.000" starttime="20181104 10:37:48.740"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:parameters-col_description</arg>
+</arguments>
+<msg timestamp="20181104 10:37:49.056" level="INFO">Current page contains element 'class:parameters-col_description'.</msg>
+<status status="PASS" endtime="20181104 10:37:49.057" starttime="20181104 10:37:49.001"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:37:49.092" starttime="20181104 10:37:49.057"></status>
+</kw>
+<doc>indicates an error when a required parameter is not selected</doc>
+<status status="PASS" endtime="20181104 10:37:49.092" critical="no" starttime="20181104 10:37:41.274"></status>
+</test>
+<doc>bug #4374: OAS3 parameters should be visibly validated in Try-It-Out</doc>
+<status status="PASS" endtime="20181104 10:37:49.094" starttime="20181104 10:37:41.261"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/e2e-selenium/bugs/4409.robot" id="s1-s1-s1-s1-s3" name="4409">
+<test id="s1-s1-s1-s1-s3-t1" name="Test Ufp Swagger Proxy">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/bugs/4409.yaml</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:37:49.118" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:37:52.274" starttime="20181104 10:37:49.118"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:37:52.482" starttime="20181104 10:37:52.275"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:53.099" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:53.099" starttime="20181104 10:37:52.482"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:53.100" level="INFO">Typing text 'http://test-specs/bugs/4409.yaml' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:37:53.488" starttime="20181104 10:37:53.100"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:37:53.489" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:37:53.990" starttime="20181104 10:37:53.488"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:37:54.992" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:37:54.992" starttime="20181104 10:37:53.990"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.495" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:55.496" starttime="20181104 10:37:54.992"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:37:55.496" starttime="20181104 10:37:49.117"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.539" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:37:55.540" starttime="20181104 10:37:55.496"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>/myApi</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.588" level="INFO">Current page contains text '/myApi'.</msg>
+<status status="PASS" endtime="20181104 10:37:55.588" starttime="20181104 10:37:55.540"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>class:opblock</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.589" level="INFO">Clicking element 'class:opblock'.</msg>
+<status status="PASS" endtime="20181104 10:37:55.778" starttime="20181104 10:37:55.588"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-body</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.903" level="INFO">Current page contains element 'class:opblock-body'.</msg>
+<status status="PASS" endtime="20181104 10:37:55.903" starttime="20181104 10:37:55.778"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>//div[contains(@class, 'opblock') and contains(@class, 'is-open')]</arg>
+</arguments>
+<msg timestamp="20181104 10:37:55.952" level="INFO">Current page contains element '//div[contains(@class, 'opblock') and contains(@class, 'is-open')]'.</msg>
+<status status="PASS" endtime="20181104 10:37:55.952" starttime="20181104 10:37:55.904"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:37:55.980" starttime="20181104 10:37:55.952"></status>
+</kw>
+<doc>expands an operation that has a normalizable operationId</doc>
+<status status="PASS" endtime="20181104 10:37:55.981" critical="no" starttime="20181104 10:37:49.114"></status>
+</test>
+<doc>bug #4409: operationId normalization and layout tracking</doc>
+<status status="PASS" endtime="20181104 10:37:55.983" starttime="20181104 10:37:49.100"></status>
+</suite>
+<status status="PASS" endtime="20181104 10:37:55.989" starttime="20181104 10:37:32.126"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/e2e-selenium/informationContainer.robot" id="s1-s1-s1-s2" name="informationContainer">
+<test id="s1-s1-s1-s2-t1" name="Render model wrapper">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:37:56.013" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:37:58.992" starttime="20181104 10:37:56.012"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:37:59.186" starttime="20181104 10:37:58.992"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:37:59.785" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:37:59.786" starttime="20181104 10:37:59.186"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:37:59.787" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:00.107" starttime="20181104 10:37:59.786"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:00.107" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:00.605" starttime="20181104 10:38:00.107"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:01.607" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:01.607" starttime="20181104 10:38:00.606"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:02.181" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:02.181" starttime="20181104 10:38:01.608"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:02.182" starttime="20181104 10:37:56.009"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:02.224" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:02.224" starttime="20181104 10:38:02.182"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:02.273" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:02.273" starttime="20181104 10:38:02.225"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:02.853" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-41.png"&gt;&lt;img src="selenium-screenshot-41.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:02.853" starttime="20181104 10:38:02.274"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:02.853" starttime="20181104 10:37:56.008"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:title</arg>
+<arg>Swagger Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:02.946" level="INFO">Element 'class:title' contains text 'Swagger Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:02.946" starttime="20181104 10:38:02.854"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:version</arg>
+<arg>1.0.0</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.036" level="INFO">Element 'class:version' contains text '1.0.0'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.037" starttime="20181104 10:38:02.947"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:info</arg>
+<arg>ufp-swagger-proxy:8080/proxy/http://test-specs:80/</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.155" level="INFO">Element 'class:info' contains text 'ufp-swagger-proxy:8080/proxy/http://test-specs:80/'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.156" starttime="20181104 10:38:03.037"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:info</arg>
+<arg>Terms of service</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.247" level="INFO">Element 'class:info' contains text 'Terms of service'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.247" starttime="20181104 10:38:03.156"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:info</arg>
+<arg>Contact the developer</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.331" level="INFO">Element 'class:info' contains text 'Contact the developer'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.331" starttime="20181104 10:38:03.247"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:info</arg>
+<arg>Apache 2.0</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.417" level="INFO">Element 'class:info' contains text 'Apache 2.0'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.417" starttime="20181104 10:38:03.332"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:info</arg>
+<arg>Find out more about Swagger</arg>
+</arguments>
+<msg timestamp="20181104 10:38:03.502" level="INFO">Element 'class:info' contains text 'Find out more about Swagger'.</msg>
+<status status="PASS" endtime="20181104 10:38:03.502" starttime="20181104 10:38:03.418"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:04.088" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:04.088" starttime="20181104 10:38:03.504"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:04.123" starttime="20181104 10:38:04.089"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:04.123" starttime="20181104 10:38:03.503"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:04.123" critical="no" starttime="20181104 10:37:56.006"></status>
+</test>
+<doc>Render Model Wrapper</doc>
+<status status="PASS" endtime="20181104 10:38:04.125" starttime="20181104 10:37:55.994"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/e2e-selenium/models.robot" id="s1-s1-s1-s3" name="Models">
+<test id="s1-s1-s1-s3-t1" name="Render model wrapper">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:04.147" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:07.477" starttime="20181104 10:38:04.147"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:07.682" starttime="20181104 10:38:07.478"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:08.321" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:08.321" starttime="20181104 10:38:07.682"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:08.322" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:08.728" starttime="20181104 10:38:08.321"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:08.729" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:09.299" starttime="20181104 10:38:08.728"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:10.301" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:10.301" starttime="20181104 10:38:09.299"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:10.880" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:10.880" starttime="20181104 10:38:10.301"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:10.880" starttime="20181104 10:38:04.146"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:10.922" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:10.923" starttime="20181104 10:38:10.881"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:10.972" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:10.973" starttime="20181104 10:38:10.923"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:11.555" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-43.png"&gt;&lt;img src="selenium-screenshot-43.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:11.555" starttime="20181104 10:38:10.973"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:11.556" starttime="20181104 10:38:04.145"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//div[2]//div[6]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:11.679" starttime="20181104 10:38:11.557"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:11.753" level="INFO">Element '//div[@class='swagger-ui']//div[2]//div[6]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:11.753" starttime="20181104 10:38:11.679"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:11.847" level="INFO">${content} = ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:11.847" starttime="20181104 10:38:11.754"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:11.848" level="INFO">Text of NODE is ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:11.848" starttime="20181104 10:38:11.847"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:12.399" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-44.png"&gt;&lt;img src="selenium-screenshot-44.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:12.399" starttime="20181104 10:38:11.848"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:12.399" starttime="20181104 10:38:11.556"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:12.958" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-45.png"&gt;&lt;img src="selenium-screenshot-45.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:12.959" starttime="20181104 10:38:12.401"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:13.004" starttime="20181104 10:38:12.959"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:13.004" starttime="20181104 10:38:12.400"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:13.005" critical="no" starttime="20181104 10:38:04.143"></status>
+</test>
+<test id="s1-s1-s1-s3-t2" name="Render model wrapper collapse">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:13.011" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:15.979" starttime="20181104 10:38:13.011"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:16.212" starttime="20181104 10:38:15.980"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:16.802" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:16.803" starttime="20181104 10:38:16.213"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:16.804" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:17.155" starttime="20181104 10:38:16.803"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:17.156" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:17.674" starttime="20181104 10:38:17.155"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:18.676" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:18.676" starttime="20181104 10:38:17.674"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:19.250" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:19.250" starttime="20181104 10:38:18.677"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:19.250" starttime="20181104 10:38:13.010"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:19.292" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:19.293" starttime="20181104 10:38:19.251"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:19.342" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:19.342" starttime="20181104 10:38:19.293"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:19.921" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-46.png"&gt;&lt;img src="selenium-screenshot-46.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:19.921" starttime="20181104 10:38:19.343"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:19.922" starttime="20181104 10:38:13.008"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:20.036" starttime="20181104 10:38:19.923"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:20.105" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:20.105" starttime="20181104 10:38:20.037"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:20.240" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:20.241" starttime="20181104 10:38:20.106"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:20.242" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:20.242" starttime="20181104 10:38:20.241"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:20.809" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-47.png"&gt;&lt;img src="selenium-screenshot-47.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:20.810" starttime="20181104 10:38:20.242"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:20.810" starttime="20181104 10:38:19.922"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class, 'models')]//h4</arg>
+</arguments>
+<msg timestamp="20181104 10:38:20.811" level="INFO">Clicking element '//div[@class='swagger-ui']//section[contains(@class, 'models')]//h4'.</msg>
+<status status="PASS" endtime="20181104 10:38:21.049" starttime="20181104 10:38:20.810"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models') and not(contains(@class,'is-open'))]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:21.174" starttime="20181104 10:38:21.050"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:21.242" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models') and not(contains(@class,'is-open'))]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:21.242" starttime="20181104 10:38:21.174"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:21.302" level="INFO">${content} = Models</msg>
+<status status="PASS" endtime="20181104 10:38:21.303" starttime="20181104 10:38:21.242"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:21.304" level="INFO">Text of NODE is Models</msg>
+<status status="PASS" endtime="20181104 10:38:21.304" starttime="20181104 10:38:21.303"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:21.886" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-48.png"&gt;&lt;img src="selenium-screenshot-48.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:21.886" starttime="20181104 10:38:21.304"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:21.887" starttime="20181104 10:38:21.049"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:22.465" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:22.465" starttime="20181104 10:38:21.888"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:22.498" starttime="20181104 10:38:22.465"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:22.499" starttime="20181104 10:38:21.887"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:22.499" critical="no" starttime="20181104 10:38:13.007"></status>
+</test>
+<test id="s1-s1-s1-s3-t3" name="Testing order model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:22.504" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:25.743" starttime="20181104 10:38:22.504"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:25.957" starttime="20181104 10:38:25.744"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:26.552" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:26.553" starttime="20181104 10:38:25.958"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:26.554" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:26.954" starttime="20181104 10:38:26.553"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:26.955" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:27.487" starttime="20181104 10:38:26.955"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:28.489" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:28.489" starttime="20181104 10:38:27.488"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:29.055" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:29.056" starttime="20181104 10:38:28.489"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:29.056" starttime="20181104 10:38:22.503"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:29.098" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:29.098" starttime="20181104 10:38:29.056"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:29.149" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:29.149" starttime="20181104 10:38:29.098"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:29.744" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:29.744" starttime="20181104 10:38:29.149"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:29.745" starttime="20181104 10:38:22.502"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:29.835" starttime="20181104 10:38:29.746"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:29.913" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:29.913" starttime="20181104 10:38:29.835"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:30.055" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:30.056" starttime="20181104 10:38:29.914"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:30.056" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:30.057" starttime="20181104 10:38:30.056"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:30.628" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:30.628" starttime="20181104 10:38:30.057"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:30.629" starttime="20181104 10:38:29.745"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-Order']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:38:30.629" level="INFO">Clicking element '//div[@id='model-Order']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:38:30.894" starttime="20181104 10:38:30.629"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:31.681" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:31.681" starttime="20181104 10:38:30.895"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:31.714" starttime="20181104 10:38:31.681"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:31.714" starttime="20181104 10:38:30.894"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:31.714" critical="no" starttime="20181104 10:38:22.500"></status>
+</test>
+<test id="s1-s1-s1-s3-t4" name="Testing Category model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:31.720" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:34.742" starttime="20181104 10:38:31.719"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:34.947" starttime="20181104 10:38:34.742"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:35.540" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:35.540" starttime="20181104 10:38:34.947"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:35.541" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:35.897" starttime="20181104 10:38:35.541"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:35.898" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:36.441" starttime="20181104 10:38:35.897"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:37.442" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:37.443" starttime="20181104 10:38:36.442"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:38.023" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:38.024" starttime="20181104 10:38:37.443"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:38.024" starttime="20181104 10:38:31.718"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:38.066" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:38.067" starttime="20181104 10:38:38.025"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:38.116" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:38.116" starttime="20181104 10:38:38.067"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:38.711" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:38.712" starttime="20181104 10:38:38.117"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:38.712" starttime="20181104 10:38:31.717"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:38.800" starttime="20181104 10:38:38.713"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:38.879" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:38.879" starttime="20181104 10:38:38.801"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:39.020" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:39.020" starttime="20181104 10:38:38.880"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:39.021" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:39.021" starttime="20181104 10:38:39.020"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:39.589" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:39.590" starttime="20181104 10:38:39.022"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:39.590" starttime="20181104 10:38:38.712"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-Category']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:38:39.591" level="INFO">Clicking element '//div[@id='model-Category']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:38:39.853" starttime="20181104 10:38:39.590"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:40.611" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:40.611" starttime="20181104 10:38:39.855"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:40.661" starttime="20181104 10:38:40.611"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:40.662" starttime="20181104 10:38:39.854"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:40.662" critical="no" starttime="20181104 10:38:31.716"></status>
+</test>
+<test id="s1-s1-s1-s3-t5" name="Testing User model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:40.669" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:43.670" starttime="20181104 10:38:40.668"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:43.861" starttime="20181104 10:38:43.670"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:44.458" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:44.458" starttime="20181104 10:38:43.861"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:44.459" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:44.799" starttime="20181104 10:38:44.458"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:44.799" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:45.326" starttime="20181104 10:38:44.799"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:46.327" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:46.328" starttime="20181104 10:38:45.326"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:46.910" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:46.911" starttime="20181104 10:38:46.328"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:46.911" starttime="20181104 10:38:40.667"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:46.953" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:46.954" starttime="20181104 10:38:46.912"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:47.007" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:47.007" starttime="20181104 10:38:46.954"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:47.588" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-56.png"&gt;&lt;img src="selenium-screenshot-56.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:47.588" starttime="20181104 10:38:47.007"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:47.588" starttime="20181104 10:38:40.666"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:47.706" starttime="20181104 10:38:47.590"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:47.778" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:47.778" starttime="20181104 10:38:47.707"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:47.914" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:47.914" starttime="20181104 10:38:47.779"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:47.916" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:47.916" starttime="20181104 10:38:47.915"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:48.505" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:48.505" starttime="20181104 10:38:47.916"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:48.506" starttime="20181104 10:38:47.589"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-User']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:38:48.507" level="INFO">Clicking element '//div[@id='model-User']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:38:48.779" starttime="20181104 10:38:48.506"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:49.542" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-58.png"&gt;&lt;img src="selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:49.543" starttime="20181104 10:38:48.781"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:49.573" starttime="20181104 10:38:49.543"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:49.573" starttime="20181104 10:38:48.780"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:49.574" critical="no" starttime="20181104 10:38:40.665"></status>
+</test>
+<test id="s1-s1-s1-s3-t6" name="Testing Tag model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:49.580" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:38:52.857" starttime="20181104 10:38:49.579"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:53.042" starttime="20181104 10:38:52.857"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:53.654" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:53.654" starttime="20181104 10:38:53.043"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:53.655" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:38:54.026" starttime="20181104 10:38:53.655"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:54.027" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:38:54.568" starttime="20181104 10:38:54.027"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:38:55.569" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:38:55.569" starttime="20181104 10:38:54.568"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:38:56.140" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:56.140" starttime="20181104 10:38:55.570"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:56.141" starttime="20181104 10:38:49.578"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:38:56.183" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:38:56.184" starttime="20181104 10:38:56.141"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:38:56.234" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:38:56.234" starttime="20181104 10:38:56.184"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:56.831" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-59.png"&gt;&lt;img src="selenium-screenshot-59.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:56.831" starttime="20181104 10:38:56.235"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:56.831" starttime="20181104 10:38:49.577"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:38:56.925" starttime="20181104 10:38:56.833"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:57.015" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:38:57.016" starttime="20181104 10:38:56.925"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:38:57.153" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:57.155" starttime="20181104 10:38:57.016"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:38:57.156" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:38:57.156" starttime="20181104 10:38:57.155"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:57.727" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-60.png"&gt;&lt;img src="selenium-screenshot-60.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:57.727" starttime="20181104 10:38:57.157"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:57.727" starttime="20181104 10:38:56.832"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-Tag']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:38:57.728" level="INFO">Clicking element '//div[@id='model-Tag']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:38:58.003" starttime="20181104 10:38:57.728"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:38:58.782" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-61.png"&gt;&lt;img src="selenium-screenshot-61.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:38:58.783" starttime="20181104 10:38:58.005"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:38:58.818" starttime="20181104 10:38:58.783"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:58.819" starttime="20181104 10:38:58.004"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:38:58.819" critical="no" starttime="20181104 10:38:49.575"></status>
+</test>
+<test id="s1-s1-s1-s3-t7" name="Testing Pet model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:38:58.825" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:39:02.019" starttime="20181104 10:38:58.824"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:39:02.205" starttime="20181104 10:39:02.019"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:02.807" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:02.808" starttime="20181104 10:39:02.205"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:02.809" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:39:03.178" starttime="20181104 10:39:02.808"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:39:03.179" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:39:03.714" starttime="20181104 10:39:03.178"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:39:04.715" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:39:04.715" starttime="20181104 10:39:03.714"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:05.288" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:05.289" starttime="20181104 10:39:04.715"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:05.289" starttime="20181104 10:38:58.823"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:39:05.332" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:39:05.332" starttime="20181104 10:39:05.290"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:39:05.381" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:39:05.382" starttime="20181104 10:39:05.333"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:05.973" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:05.973" starttime="20181104 10:39:05.382"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:05.974" starttime="20181104 10:38:58.823"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:39:06.088" starttime="20181104 10:39:05.975"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:06.159" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:39:06.159" starttime="20181104 10:39:06.089"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:39:06.292" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:39:06.292" starttime="20181104 10:39:06.160"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:06.293" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:39:06.293" starttime="20181104 10:39:06.293"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:06.881" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-63.png"&gt;&lt;img src="selenium-screenshot-63.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:06.881" starttime="20181104 10:39:06.294"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:06.882" starttime="20181104 10:39:05.974"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-Pet']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:39:06.883" level="INFO">Clicking element '//div[@id='model-Pet']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:39:07.160" starttime="20181104 10:39:06.882"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:07.965" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-64.png"&gt;&lt;img src="selenium-screenshot-64.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:07.966" starttime="20181104 10:39:07.161"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:39:07.997" starttime="20181104 10:39:07.966"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:07.997" starttime="20181104 10:39:07.161"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:07.997" critical="no" starttime="20181104 10:38:58.821"></status>
+</test>
+<test id="s1-s1-s1-s3-t8" name="Testing ApiResponse model">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/petstore.json</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:39:08.003" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:39:11.010" starttime="20181104 10:39:08.003"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:39:11.193" starttime="20181104 10:39:11.011"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:11.787" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:11.788" starttime="20181104 10:39:11.194"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:11.789" level="INFO">Typing text 'http://test-specs/petstore.json' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:39:12.187" starttime="20181104 10:39:11.788"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:39:12.188" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:39:12.750" starttime="20181104 10:39:12.187"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:39:13.752" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:39:13.752" starttime="20181104 10:39:12.750"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:14.320" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:14.320" starttime="20181104 10:39:13.752"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:14.321" starttime="20181104 10:39:08.002"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:39:14.364" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:39:14.365" starttime="20181104 10:39:14.321"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Petstore</arg>
+</arguments>
+<msg timestamp="20181104 10:39:14.413" level="INFO">Current page contains text 'Petstore'.</msg>
+<status status="PASS" endtime="20181104 10:39:14.414" starttime="20181104 10:39:14.365"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:15.003" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-65.png"&gt;&lt;img src="selenium-screenshot-65.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:15.003" starttime="20181104 10:39:14.414"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:15.004" starttime="20181104 10:39:08.001"></status>
+</kw>
+<kw name="Scroll Into View And Check Is Visible">
+<arguments>
+<arg>//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]</arg>
+</arguments>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<doc>Scrolls an element identified by ``locator`` into view.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:39:15.094" starttime="20181104 10:39:15.005"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:15.175" level="INFO">Element '//div[@class='swagger-ui']//section[contains(@class,'models')and contains(@class,'is-open')]' is displayed.</msg>
+<status status="PASS" endtime="20181104 10:39:15.175" starttime="20181104 10:39:15.094"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20181104 10:39:15.316" level="INFO">${content} = Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:39:15.316" starttime="20181104 10:39:15.176"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text of NODE is ${content}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:15.317" level="INFO">Text of NODE is Models
+Order
+Category
+User
+Tag
+Pet
+ApiResponse</msg>
+<status status="PASS" endtime="20181104 10:39:15.317" starttime="20181104 10:39:15.317"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:15.886" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-66.png"&gt;&lt;img src="selenium-screenshot-66.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:15.886" starttime="20181104 10:39:15.318"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:15.886" starttime="20181104 10:39:15.004"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-ApiResponse']//span[contains(@class,'model-toggle')]</arg>
+</arguments>
+<msg timestamp="20181104 10:39:15.887" level="INFO">Clicking element '//div[@id='model-ApiResponse']//span[contains(@class,'model-toggle')]'.</msg>
+<status status="PASS" endtime="20181104 10:39:16.150" starttime="20181104 10:39:15.887"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:16.949" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-67.png"&gt;&lt;img src="selenium-screenshot-67.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:16.949" starttime="20181104 10:39:16.151"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:39:16.986" starttime="20181104 10:39:16.950"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:16.986" starttime="20181104 10:39:16.151"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:16.986" critical="no" starttime="20181104 10:39:07.999"></status>
+</test>
+<doc>Render Model Wrapper</doc>
+<status status="PASS" endtime="20181104 10:39:16.991" starttime="20181104 10:38:04.130"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/e2e-selenium/refs.robot" id="s1-s1-s1-s4" name="Refs">
+<test id="s1-s1-s1-s4-t1" name="Render model wrapper">
+<kw type="setup" name="Set Up Test Page">
+<kw name="Open Swagger Config Spec" library="spec-loader">
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<doc>Load a spec file</doc>
+<arguments>
+<arg>http://test-specs/refs/api1.yaml</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 10:39:17.025" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-swagger-proxy:8080'.</msg>
+<status status="PASS" endtime="20181104 10:39:20.059" starttime="20181104 10:39:17.024"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+</arguments>
+<status status="PASS" endtime="20181104 10:39:20.263" starttime="20181104 10:39:20.060"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:20.872" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:20.872" starttime="20181104 10:39:20.263"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:download-url-input</arg>
+<arg>${spec}</arg>
+</arguments>
+<msg timestamp="20181104 10:39:20.873" level="INFO">Typing text 'http://test-specs/refs/api1.yaml' into text field 'class:download-url-input'.</msg>
+<status status="PASS" endtime="20181104 10:39:21.255" starttime="20181104 10:39:20.872"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>Explore</arg>
+</arguments>
+<msg timestamp="20181104 10:39:21.256" level="INFO">Clicking button 'Explore'.</msg>
+<status status="PASS" endtime="20181104 10:39:21.776" starttime="20181104 10:39:21.255"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20181104 10:39:22.782" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20181104 10:39:22.782" starttime="20181104 10:39:21.776"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotServiceStart.png</arg>
+</arguments>
+<msg timestamp="20181104 10:39:23.304" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotServiceStart.png"&gt;&lt;img src="ScreenshotServiceStart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:23.304" starttime="20181104 10:39:22.783"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:23.304" starttime="20181104 10:39:17.023"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>class:opblock-tag-section</arg>
+</arguments>
+<msg timestamp="20181104 10:39:23.346" level="INFO">Current page contains element 'class:opblock-tag-section'.</msg>
+<status status="PASS" endtime="20181104 10:39:23.347" starttime="20181104 10:39:23.305"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:23.887" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-68.png"&gt;&lt;img src="selenium-screenshot-68.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:23.887" starttime="20181104 10:39:23.347"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:23.888" starttime="20181104 10:39:17.022"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>class:title</arg>
+<arg>API1 Test</arg>
+</arguments>
+<msg timestamp="20181104 10:39:23.984" level="INFO">Element 'class:title' contains text 'API1 Test'.</msg>
+<status status="PASS" endtime="20181104 10:39:23.985" starttime="20181104 10:39:23.888"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Api1Prop</arg>
+</arguments>
+<msg timestamp="20181104 10:39:24.032" level="INFO">Current page contains text 'Api1Prop'.</msg>
+<status status="PASS" endtime="20181104 10:39:24.032" starttime="20181104 10:39:23.985"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>TestResponse</arg>
+</arguments>
+<msg timestamp="20181104 10:39:24.080" level="INFO">Current page contains text 'TestResponse'.</msg>
+<status status="PASS" endtime="20181104 10:39:24.080" starttime="20181104 10:39:24.033"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id='model-TestResponse']/span[2]</arg>
+</arguments>
+<msg timestamp="20181104 10:39:24.082" level="INFO">Clicking element '//div[@id='model-TestResponse']/span[2]'.</msg>
+<status status="PASS" endtime="20181104 10:39:24.283" starttime="20181104 10:39:24.081"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:24.907" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-69.png"&gt;&lt;img src="selenium-screenshot-69.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:24.907" starttime="20181104 10:39:24.283"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>//div[@id='model-TestResponse']</arg>
+<arg>api1prop</arg>
+</arguments>
+<msg timestamp="20181104 10:39:25.048" level="INFO">Element '//div[@id='model-TestResponse']' contains text 'api1prop'.</msg>
+<status status="PASS" endtime="20181104 10:39:25.048" starttime="20181104 10:39:24.908"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>//div[@id='model-TestResponse']</arg>
+<arg>api2prop</arg>
+</arguments>
+<msg timestamp="20181104 10:39:25.150" level="INFO">Element '//div[@id='model-TestResponse']' contains text 'api2prop'.</msg>
+<status status="PASS" endtime="20181104 10:39:25.150" starttime="20181104 10:39:25.049"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>//div[@id='model-TestResponse']</arg>
+<arg>api2.yamlApi2Prop</arg>
+</arguments>
+<msg timestamp="20181104 10:39:25.255" level="INFO">Element '//div[@id='model-TestResponse']' contains text 'api2.yamlApi2Prop'.</msg>
+<status status="PASS" endtime="20181104 10:39:25.256" starttime="20181104 10:39:25.150"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>//div[@id='model-TestResponse']</arg>
+<arg>this is an api2prop</arg>
+</arguments>
+<msg timestamp="20181104 10:39:25.366" level="INFO">Element '//div[@id='model-TestResponse']' contains text 'this is an api2prop'.</msg>
+<status status="PASS" endtime="20181104 10:39:25.366" starttime="20181104 10:39:25.256"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:25.915" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-70.png"&gt;&lt;img src="selenium-screenshot-70.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:25.916" starttime="20181104 10:39:25.366"></status>
+</kw>
+<kw type="teardown" name="Teardown Test Page">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 10:39:26.471" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-71.png"&gt;&lt;img src="selenium-screenshot-71.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 10:39:26.472" starttime="20181104 10:39:25.917"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 10:39:26.502" starttime="20181104 10:39:26.472"></status>
+</kw>
+<status status="PASS" endtime="20181104 10:39:26.503" starttime="20181104 10:39:25.916"></status>
+</kw>
+<tags>
+<tag>wip</tag>
+</tags>
+<status status="PASS" endtime="20181104 10:39:26.503" critical="no" starttime="20181104 10:39:17.020"></status>
+</test>
+<doc>Render Model Wrapper</doc>
+<status status="PASS" endtime="20181104 10:39:26.506" starttime="20181104 10:39:17.005"></status>
+</suite>
+<status status="PASS" endtime="20181104 10:39:26.514" starttime="20181104 10:37:32.121"></status>
+</suite>
+<status status="PASS" endtime="20181104 10:39:26.531" starttime="20181104 10:37:32.117"></status>
+</suite>
+<status status="PASS" endtime="20181104 10:39:26.547" starttime="20181104 10:37:32.062"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="0">Critical Tests</stat>
+<stat fail="0" pass="13">All Tests</stat>
+</total>
+<tag>
+<stat info="critical" fail="0" pass="0">critical</stat>
+<stat info="non-critical" fail="0" pass="0">noncritical</stat>
+<stat fail="0" pass="1">debug</stat>
+<stat fail="0" pass="1">non-critical</stat>
+<stat fail="0" pass="1">wip</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Tests" pass="13">Tests</stat>
+<stat fail="0" id="s1-s1" name="Test" pass="13">Tests.Test</stat>
+<stat fail="0" id="s1-s1-s1" name="E2E-Selenium" pass="13">Tests.Test.E2E-Selenium</stat>
+<stat fail="0" id="s1-s1-s1-s1" name="Bugs" pass="3">Tests.Test.E2E-Selenium.Bugs</stat>
+<stat fail="0" id="s1-s1-s1-s1-s1" name="4196" pass="1">Tests.Test.E2E-Selenium.Bugs.4196</stat>
+<stat fail="0" id="s1-s1-s1-s1-s2" name="4374" pass="1">Tests.Test.E2E-Selenium.Bugs.4374</stat>
+<stat fail="0" id="s1-s1-s1-s1-s3" name="4409" pass="1">Tests.Test.E2E-Selenium.Bugs.4409</stat>
+<stat fail="0" id="s1-s1-s1-s2" name="informationContainer" pass="1">Tests.Test.E2E-Selenium.informationContainer</stat>
+<stat fail="0" id="s1-s1-s1-s3" name="Models" pass="8">Tests.Test.E2E-Selenium.Models</stat>
+<stat fail="0" id="s1-s1-s1-s4" name="Refs" pass="1">Tests.Test.E2E-Selenium.Refs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
