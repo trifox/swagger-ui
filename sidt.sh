@@ -9,8 +9,9 @@ log ""
 
 ACTIVE_STACKS=(infra service debug test)
 
-
-DOCKERFILE=""
+CACHE="--no-cache"
+CACHE=" "
+DOCKERFILESUFFIX=""
 
 SUITE_NAME="componenttest-e2e-selenium"
 SUITE_NAME="componenttest"
@@ -19,7 +20,7 @@ SUITE_NAME="componenttest"
 # Variables
 ###
 export PROJECT_NAME="ckleinhuis/ufp-swagger-proxy"
-export VERSION=10
+export VERSION=11
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
@@ -30,7 +31,7 @@ STOP=0
 LOG_STACK=0
 STATE_STACK=0
 PULL_STACK=0
-DEBUG=0
+DEBUG=1
 MAKE=0
 EXECUTE=1
 
@@ -58,6 +59,7 @@ help() {
   echo "   -c           (re-)Create container stacks"
   echo "   -v <version> Version"
   echo "   -n <name>    Name"
+  echo "   -m <name>    Make"
   echo "   -l <stack>   Show the logs of stacks"
   echo "   -u <stack>   Starts the given stack. Possible stacks see below!"
   echo "   -d <stack>   Stops the given stack. Possible stacks see below!"
@@ -72,6 +74,13 @@ help() {
   echo "     all       All these stacks"
   echo "     *any      Any other componenttest/docker-compose-[*any].yml"
   echo ""
+  echo "   Possible Make Areas:"
+  echo "     Any folder in the /stacks directory"
+  echo ""
+  echo "   Possible Make Targets:"
+  echo "     service   The Service points to Dockerfile in current dir"
+  echo "     *any      Any other input is suffixed to dockerfile in same dir Dockerfile.{Name}"
+  echo ""
   echo " Default behavior: Does Nothing"
   echo ""
   echo " (continued) author: ck@froso.de"
@@ -79,17 +88,21 @@ help() {
 }
 
 makeIt(){
+     getDockerFilename
 
+DOCKERFILENAME=${DOCKERFILESUFFIX}
+DOCKERTAG=${DOCKERFILESUFFIX}
 
-DOCKER=${DOCKERFILE}
-DOCKER2=${DOCKERFILE}
-if [ $DOCKERFILE ]; then
-   DOCKER=".$DOCKERFILE"
-   DOCKER2="-$DOCKERFILE"
+if [ "$DOCKERFILESUFFIX" = "service" ]; then
+   DOCKERFILENAME=""
+   DOCKERTAG=""
+elif [ $DOCKERFILESUFFIX ]; then
+   DOCKERFILENAME=".$DOCKERFILESUFFIX"
+   DOCKERTAG="-$DOCKERFILESUFFIX"
 fi
     	#    hnandle call to docker build of main service in root Dockerfile
-	log "Building main docker image Dockerfile.${DOCKER} $PROJECT_NAME-${DOCKER}:$VERSION "
-        docker build -f Dockerfile${DOCKER}  --no-cache -t ${PROJECT_NAME}${DOCKER2}:${VERSION}  -t ${PROJECT_NAME}${DOCKER2}:latest .
+	log "Building main docker image Dockerfile${DOCKERFILENAME} $PROJECT_NAME${DOCKERTAG}:$VERSION "
+        docker build -f Dockerfile${DOCKERFILENAME} ${CACHE} -t ${PROJECT_NAME}${DOCKERTAG}:${VERSION}  -t ${PROJECT_NAME}${DOCKERTAG}:latest .
 
 
 }
@@ -120,30 +133,28 @@ startStack() {
 
 	stopStack  $COMPOSE_FILENAME
     if [ "$CREATE" -eq "1" ]; then
-	log "(Re-)Creating Stack ${COMPOSE_FILENAME}"
+	    log "(Re-)Creating Stack ${COMPOSE_FILENAME}"
+		  docker-compose -f $COMPOSE_FILENAME -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
+	  fi
 
-#	  if [ "$COMPOSE_FILENAME" = "$STACK_LOCATION_SERVICE" ]; then
-#    	#    hnandle call to docker build of main service in root Dockerfile
-#	log "Building main docker image $PROJECT_NAME:$VERSION"
-#        docker build   --no-cache -t $PROJECT_NAME:$VERSION  -t $PROJECT_NAME:latest .
-#    fi
-#	  if [ "$COMPOSE_FILENAME" = "$BUILD_DEPENDENCIES" ]; then
-#    	#    hnandle call to docker build of main service in root Dockerfile
-#	log "Building dependencies docker image $PROJECT_NAME-dependencies:$VERSION"
-#        docker build   -f Dockerfile.dependencies  --no-cache -t $PROJECT_NAME-dependencies:$VERSION  -t $PROJECT_NAME-dependencies:latest .
-#    fi
+    if [ -f $1 ]; then
+        log "Starting Stack with start-dependencies entrypoint"
+        docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} run --rm start-dependencies
+        if [ "$?" -ne "0" ]; then
+        log "wait-for-dependencies not found starting normal"
+            docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
+        fi
+    else
+        log "File not found ${1}"
+    fi
 
-		docker-compose -f $COMPOSE_FILENAME -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
 
-	fi
-     RESULT=$?
     docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
+    RESULT=$?
 }
 stopStack() {
-
     COMPOSE_FILENAME=$1
-	log "Stopping Stack ${COMPOSE_FILENAME}"
-
+	  log "Stopping Stack ${COMPOSE_FILENAME}"
     docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down
 }
 
@@ -162,14 +173,13 @@ pullAllImages() {
 }
 
 chooseServices() {
-
     ACTIVE_STACKS=()
     case $1 in
        all)
             ACTIVE_STACKS+=("infra")
             ACTIVE_STACKS+=("service")
             ACTIVE_STACKS+=("debug")
-            ACTIVE_STACKS+=("test")
+#            ACTIVE_STACKS+=("test")
             ;;
      *)
             log "Using input --- $1"
@@ -178,28 +188,22 @@ chooseServices() {
     esac
 }
 chooseArea() {
-
     ACTIVE_STACKS=()
     case $1 in
-
      *)
             log "Using input area --- $1"
             SUITE_NAME=$1
     esac
 }
 chooseName() {
-
     case $1 in
-
      *)
             log "Using name --- $1"
             PROJECT_NAME=$1
     esac
 }
 chooseVersion() {
-
     case $1 in
-
      *)
             log "Using version --- $1"
             VERSION=$1
@@ -207,12 +211,10 @@ chooseVersion() {
 }
 
 chooseDockerfile() {
-
     case $1 in
-
      *)
             log "Using input area --- $1"
-            DOCKERFILE="$1"
+            DOCKERFILESUFFIX="$1"
     esac
 }
 
@@ -292,10 +294,7 @@ while getopts 'v:m:a:u:d:p:l:s:chb' OPTION; do
   esac
 done
 
-
-
-
-STACK_LOCATION="${SCRIPT_HOME}${SUITE_NAME}/docker-compose-"
+STACK_LOCATION="${SCRIPT_HOME}stacks/${SUITE_NAME}/docker-compose-"
 STACK_LOCATION_SERVICE="${STACK_LOCATION}service.yml"
 BUILD_DEPENDENCIES="${STACK_LOCATION}dependencies.yml"
 STACK_LOCATION_INFRA="${STACK_LOCATION}infrastructure.yml"
@@ -304,7 +303,7 @@ STACK_LOCATION_TEST="${STACK_LOCATION}test.yml"
 
 
 log ""
-log "SIDT - Dockerfile '${DOCKERFILE}'"
+log "SIDT - Dockerfile '${DOCKERFILESUFFIX}'"
 log "SIDT - Suite '${SUITE_NAME}'"
 log "SIDT - Stacks [${ACTIVE_STACKS[*]}]"
 log ""
@@ -324,9 +323,12 @@ execute(){
     if [ "$PULL_STACK" -eq "1" ];then
     pullStack $1
     fi
-    if [ "$STATE_STACK" -eq "1" ];then
-    statsStack $1
-    fi
+#    if [ "$STATE_STACK" -eq "1" ];then
+#    statsStack $1
+#    fi
+
+     statsStack $1
+
 }
 
 if [ "$DEBUG" -eq "1" ]; then
@@ -347,4 +349,5 @@ log "SIDT - ${ACTIVE_STACKS}"
 log "SIDT - Service Infrastructure Debug Test Exit"
 log ""
 
+echo "SIDT.sh exiting with result ${RESULT}"
 exit ${RESULT}

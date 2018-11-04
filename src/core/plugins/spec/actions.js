@@ -184,6 +184,8 @@ const debResolveSubtrees = debounce(async () => {
 
   try {
     var batchResult = await requestBatch.reduce(async (prev, path) => {
+
+      // FIXME: TODO: remove redundancy
       const proxyHost = `${window.location.hostname}:${window.location.port}`
       const proxy = `${window.location.protocol}//${proxyHost}/proxy/`
       const proxyUrl = `${proxy}${specSelectors.url()}`

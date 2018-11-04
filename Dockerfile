@@ -2,7 +2,7 @@
 # We don't declare them here — take a look at our docs.
 # https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
 # WE USE a dependencies image where the installed dependencies are cached, build using ./sidt.sh -u dependencies -c
-FROM  ckleinhuis/ufp-swagger-proxy-dependencies:10  as build
+FROM  ckleinhuis/ufp-swagger-proxy-dependencies:11  as build
 
 WORKDIR /build
 

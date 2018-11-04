@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181104 02:35:13.626" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
+<suite source="/opt/robotframework/tests" id="s1" name="Tests">
+<suite source="/opt/robotframework/tests/test" id="s1-s1" name="Test">
+<suite source="/opt/robotframework/tests/test/HelloWorld.robot" id="s1-s1-s1" name="HelloWorld">
+<test id="s1-s1-s1-t1" name="HelloWorld">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hello World</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:13.696" starttime="20181104 02:35:13.695"></status>
+</kw>
+<tags>
+<tag>playground</tag>
+</tags>
+<status status="PASS" endtime="20181104 02:35:13.696" critical="no" starttime="20181104 02:35:13.694"></status>
+</test>
+<status status="PASS" endtime="20181104 02:35:13.698" starttime="20181104 02:35:13.690"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestDebugSetup.robot" id="s1-s1-s2" name="TestDebugSetup">
+<test id="s1-s1-s2-t1" name="Test Debug Setup Index">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 02:35:13.932" level="INFO">Opening browser 'Chrome' to base url 'http://development-overview:3000'.</msg>
+<status status="PASS" endtime="20181104 02:35:21.167" starttime="20181104 02:35:13.931"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Dev Swagger UI</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:21.220" starttime="20181104 02:35:21.168"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Ufp Swagger Proxy</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:21.265" starttime="20181104 02:35:21.221"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Wiremock Petstore</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:21.312" starttime="20181104 02:35:21.266"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Swagger Petstore</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:21.355" starttime="20181104 02:35:21.312"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>Test Report</arg>
+</arguments>
+<status status="PASS" endtime="20181104 02:35:21.398" starttime="20181104 02:35:21.355"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>ScreenshotDebugEntryPoint.png</arg>
+</arguments>
+<msg timestamp="20181104 02:35:21.935" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotDebugEntryPoint.png"&gt;&lt;img src="ScreenshotDebugEntryPoint.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 02:35:21.935" starttime="20181104 02:35:21.398"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181104 02:35:21.988" starttime="20181104 02:35:21.936"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="PASS" endtime="20181104 02:35:21.989" critical="no" starttime="20181104 02:35:13.929"></status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181104 02:35:21.992" starttime="20181104 02:35:13.700"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestInfraSetup.robot" id="s1-s1-s3" name="TestInfraSetup">
+<test id="s1-s1-s3-t1" name="Test Wiremock Petstrore">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}/__admin</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 02:35:22.016" level="INFO">Opening browser 'Chrome' to base url 'http://wiremock-petstore:8080/__admin'.</msg>
+<status status="PASS" endtime="20181104 02:35:23.878" starttime="20181104 02:35:22.015"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>mappings</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 02:35:29.414" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 02:35:29.414" starttime="20181104 02:35:28.912"></status>
+</kw>
+<msg timestamp="20181104 02:35:29.416" level="FAIL">Text 'mappings' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20181104 02:35:29.416" starttime="20181104 02:35:23.878"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="FAIL" endtime="20181104 02:35:29.417" critical="no" starttime="20181104 02:35:22.012">Text 'mappings' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-s1-s3-t2" name="Test Swagger Petstrore">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME2}:${SERVICE_PORT2}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 02:35:29.423" level="INFO">Opening browser 'Chrome' to base url 'http://swagger-petstore:8080'.</msg>
+<status status="PASS" endtime="20181104 02:35:31.525" starttime="20181104 02:35:29.421"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>swagger</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20181104 02:35:37.046" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 02:35:37.047" starttime="20181104 02:35:36.558"></status>
+</kw>
+<msg timestamp="20181104 02:35:37.048" level="FAIL">Text 'swagger' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20181104 02:35:37.048" starttime="20181104 02:35:31.526"></status>
+</kw>
+<doc>testing develop index page</doc>
+<tags>
+<tag>debug</tag>
+<tag>non-critical</tag>
+</tags>
+<status status="FAIL" endtime="20181104 02:35:37.048" critical="no" starttime="20181104 02:35:29.419">Text 'swagger' did not appear in 5 seconds.</status>
+</test>
+<doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
+<status status="PASS" endtime="20181104 02:35:37.051" starttime="20181104 02:35:21.998"></status>
+</suite>
+<suite source="/opt/robotframework/tests/test/TestService.robot" id="s1-s1-s4" name="TestService">
+<test id="s1-s1-s4-t1" name="Test Ufp Swagger Proxy">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20181104 02:35:37.091" level="INFO">

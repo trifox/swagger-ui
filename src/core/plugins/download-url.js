@@ -80,6 +80,7 @@ export default function downloadUrlPlugin (toolbox) {
       specActions.updateLoadingStatus('loading')
       errActions.clear({source: 'fetch'})
       const parsedOriginalUrl = new UrlParse(url)
+      // FIXME: TODO: remove redundancy
       const proxyHost = `${window.location.hostname}:${window.location.port}`
       const proxy = `${window.location.protocol}//${proxyHost}/proxy/`
       const proxyUrl = `${proxy}${url}`

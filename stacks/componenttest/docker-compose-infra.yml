@@ -31,3 +31,11 @@ services:
       - API_URL=http://localhost:8082
     ports:
     - "8082:8080"
+
+
+
+  start_dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+    - swagger-petstore
+    - wiremock-petstore
