@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/v2/swagger.yaml"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "swagger.yaml",
+    "headers":{
+      "content-type":"application/yaml"
+
+    }
+  }
+}

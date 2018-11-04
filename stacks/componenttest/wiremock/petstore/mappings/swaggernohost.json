@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/v2/swaggernohost.json"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "swagger-no-host.json"
+  }
+}

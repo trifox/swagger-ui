@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+
+  ##############################################
+  # The Development Overview Container
+  #
+  # it uses the ckleinhuis/ufp-env-handlebars image to transform environment variables into a json
+  # that is feed to a handlebars renderer and is configured by default to render and host a html menu
+  #
+  #
+  development-overview:
+    image: ckleinhuis/ufp-env-handlebars:latest
+    environment:
+    - CFG_BRAND_LABEL=Dev Swagger UI
+
+
+    - CFG_MENU_0_LABEL=Ufp Swagger Proxy
+    - CFG_MENU_0_LINK=http://localhost:13000/
+
+    - CFG_MENU_1_LABEL=JSON Server Petstore
+    - CFG_MENU_1_LINK=http://localhost:8081
+
+    - CFG_MENU_2_LABEL=NGINX Spec Config (Example)
+    - CFG_MENU_2_LINK=http://localhost:8082/petstore.json
+
+    - CFG_MENU_3_LABEL=Test Report
+    - CFG_MENU_3_LINK=http://localhost:8083/report.html
+
+
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TITLE=Ufp Swagger Proxy Debug Entrypoint
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_COLOR=secondary
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TEXT=This is translated e2e-selenium test into dockerized robotized environment, reconstructing infrastructure from npm selenium tests
+
+
+    ports:
+    - "8080:3000"
+
+
+  ##############################################
+  # The Test Report is hosted using a nginx
+  #
+  # making it possible to view the test run report under localhost:8083
+  #
+  test-report:
+    image: nginx
+    volumes:
+    - ./robot/report:/usr/share/nginx/html
+    ports:
+    - "8083:80"
