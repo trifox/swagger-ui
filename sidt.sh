@@ -7,7 +7,7 @@ log ""
 log "SIDT - Service Infrastructure Debug Test"
 log ""
 
-ACTIVE_STACKS=(infra service debug test)
+ACTIVE_STACKS=()
 
 CACHE="--no-cache"
 CACHE=" "
@@ -20,7 +20,7 @@ SUITE_NAME="componenttest"
 # Variables
 ###
 export PROJECT_NAME="ckleinhuis/ufp-swagger-proxy"
-export VERSION=11
+export VERSION=12
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
@@ -173,7 +173,6 @@ pullAllImages() {
 }
 
 chooseServices() {
-    ACTIVE_STACKS=()
     case $1 in
        all)
             ACTIVE_STACKS+=("infra")

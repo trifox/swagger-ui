@@ -34,7 +34,7 @@ services:
 
 
 
-  start_dependencies:
+  start-dependencies:
     image: dadarek/wait-for-dependencies
     depends_on:
     - swagger-petstore

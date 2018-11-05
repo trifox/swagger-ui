@@ -17,8 +17,8 @@ WORKDIR /build/app-proxy
 RUN npm run dist
 
 
-FROM node:8-slim    as final
-LABEL maintainer="fehguy"
+FROM node:10-slim    as final
+LABEL maintainer="cKleinhuis"
 
 ENV API_KEY "**None**"
 ENV OAUTH_CLIENT_ID "**None**"

@@ -1,4 +1,4 @@
-## UFP SWagger Proxy
+## UFP Swagger Proxy
 
 11.0.0 2018-11-04
   - convert existing selenium to sidt robot

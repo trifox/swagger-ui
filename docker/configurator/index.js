@@ -8,6 +8,7 @@ const START_MARKER = '// Begin Swagger UI call region'
 const END_MARKER = '// End Swagger UI call region'
 
 console.log('PROCESS.argv using #2', process.argv)
+console.log('PROCESS.argv using #2', process.env)
 const targetPath = path.normalize(process.cwd() + '/' + process.argv[2])
 
 const originalHtmlContent = fs.readFileSync(targetPath, 'utf8')
