@@ -14,7 +14,6 @@ services:
     environment:
     - CFG_BRAND_LABEL=Dev Swagger UI
 
-
     - CFG_MENU_0_LABEL=Ufp Swagger Proxy
     - CFG_MENU_0_LINK=http://localhost:13000/
 
@@ -31,8 +30,6 @@ services:
     - CFG_WELCOME_ENTRIES_0_TEXTS_0_TITLE=Ufp Swagger Proxy Debug Entrypoint
     - CFG_WELCOME_ENTRIES_0_TEXTS_0_COLOR=secondary
     - CFG_WELCOME_ENTRIES_0_TEXTS_0_TEXT=This debug page is made extra for you developing your app, <p>Ufp Swagger Proxy provides a swagger gui which routes all api requests to its own proxy<p>
-
-
     ports:
     - "8080:3000"
 
@@ -48,3 +45,9 @@ services:
     - ./robot/report:/usr/share/nginx/html
     ports:
     - "8083:80"
+
+  start-dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+    - test-report
+    - development-overview

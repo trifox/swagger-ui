@@ -1,5 +1,8 @@
 #! /bin/sh
 
+
+echo "UFP Swagger Proxy V12"
+
 set -e
 env
 set -x

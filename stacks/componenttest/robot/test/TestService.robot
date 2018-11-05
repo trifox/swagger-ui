@@ -17,6 +17,7 @@ Test Ufp Swagger Proxy
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains    ufp-swagger
+    Wait Until Page Contains    http://swagger-petstore:8080/api/swagger.json
     Capture Page Screenshot    ScreenshotServiceStart.png
     Close Browser
 
@@ -25,6 +26,7 @@ Test Ufp Swagger Proxy Performs
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains    ufp-swagger
+    Wait Until Page Contains    http://swagger-petstore:8080/api/swagger.json
     Capture Page Screenshot    ScreenshotServiceStart.png
     Click Element    id:operations-pet-findPetsByStatus
     Capture Page Screenshot    ScreenshotServiceStart.png
@@ -42,6 +44,7 @@ Test Ufp Swagger Proxy Performs With HTTP
     [Documentation]    testing develop index page
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
+    Wait Until Page Contains    http://swagger-petstore:8080/api/swagger.json
     Wait Until Page Contains    ufp-swagger
     Wait Until Page Contains    findByStatus
     Capture Page Screenshot    ScreenshotServiceStart.png
@@ -65,6 +68,7 @@ Test Ufp Swagger Proxy With YAML Config Works
     [Documentation]    testing develop index page
     [Tags]    debug    non-critical
     Open Browser    http://${SERVICE_NAME2}:${SERVICE_PORT2}    Chrome
+    Wait Until Page Contains    http://wiremock-petstore:8080/v2/swagger.yaml
     Wait Until Page Contains    ufp-swagger
     Wait Until Page Contains    uploadImage
 

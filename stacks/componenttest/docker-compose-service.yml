@@ -1,7 +1,7 @@
 version: '2'
 services:
   ufp-swagger-proxy:
-    image: ckleinhuis/ufp-swagger-proxy:11
+    image: ckleinhuis/ufp-swagger-proxy:12
     environment:
     - URL=http://swagger-petstore:8080/api/swagger.json
     ports:
@@ -14,7 +14,7 @@ services:
     - "3001:8080"
 
 
-  start_dependencies:
+  start-dependencies:
     image: dadarek/wait-for-dependencies
     depends_on:
     - ufp-swagger-proxy
